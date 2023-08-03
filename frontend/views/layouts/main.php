@@ -12,10 +12,7 @@ use yii\bootstrap5\Nav;
 use yii\bootstrap5\NavBar;
 use frontend\widgets\topNavWidget;
 use frontend\widgets\leftMenuWidget;
-use frontend\widgets\topProductWidget;
-use frontend\widgets\bestSellerProductWidget;
 use frontend\widgets\footerWidget;
-use frontend\widgets\suggestionWidget;
 
 AppAsset::register($this);
 ?>
@@ -33,30 +30,21 @@ AppAsset::register($this);
     <?php $this->beginBody() ?>
     <!-- Wrapper Start -->
     <div class="wrapper">
-        <!-- Sidebar  -->
+
+        <!-- Menu  -->
         <?= leftMenuWidget::widget() ?>
+
         <!-- TOP Nav Bar -->
         <?= topNavWidget::widget() ?>
         <!-- TOP Nav Bar END -->
 
         <!-- Page Content  -->
-        <div id="content-page" class="content-page">
-            <div class="container-fluid">
-                <div class="row">
-
-                    <?= topProductWidget::widget() ?>
-
-                    <?= bestSellerProductWidget::widget() ?>
-
-                    <?= suggestionWidget::widget() ?>
-                </div>
-            </div>
-        </div>
+        <?= $content ?>
     </div>
     <!-- Wrapper END -->
 
     <!-- Footer -->
-        <?= footerWidget::widget() ?>
+    <?= footerWidget::widget() ?>
     <!-- Footer END -->
 
     <?php $this->endBody() ?>

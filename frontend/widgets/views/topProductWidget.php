@@ -15,7 +15,7 @@
                         <span>
                             <img src="<?php echo $value["product_image"] ?>"
                                  class="img-fluid w-100 rounded"
-                                 style="width: 250px; height: 285px"
+                                 style="object-fit: cover; height: 280px; width: 220px"
                                  alt="">
                         </span>
                     </a>

@@ -1,6 +1,7 @@
 <?php
     use frontend\models\Product;
 ?>
+
 <div class="col-lg-12">
     <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
         <div class="iq-card-header d-flex justify-content-between align-items-center position-relative">
@@ -23,7 +24,7 @@
                                     <a href="javascript:void();">
                                         <img class="img-fluid rounded w-100"
                                              src="<?php echo $product['product_image']; ?>"
-                                             style="width: 150px; height: 220px"
+                                             style="object-fit: cover; height: 280px; width: 220px"
                                              alt="">
                                     </a>
                                     <div class="view-book">
