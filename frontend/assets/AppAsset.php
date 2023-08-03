@@ -16,6 +16,7 @@ class AppAsset extends AssetBundle
         'common/css/typography.css',
         'common/css/style.css',
         'common/css/responsive.css',
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css',
 
     ];
     public $js = [
