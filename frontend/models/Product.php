@@ -90,4 +90,17 @@ class Product extends \yii\db\ActiveRecord
 
         return $dataBestSeller;
     }
+
+    public function getSuggestProduct($limit = 5, $status = 1)
+    {
+        $dataSuggestion = Product::find()
+            ->where(['status' => $status])
+            ->orderBy(new Expression('RAND()'))
+            ->limit($limit)
+            ->distinct()
+            ->asArray()
+            ->all();
+
+        return $dataSuggestion;
+    }
 }

@@ -1,7 +1,5 @@
 <?php
-
-use frontend\models\Product;
-
+    use frontend\models\Product;
 ?>
 <div class="col-lg-12">
     <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
@@ -52,7 +50,7 @@ use frontend\models\Product;
                                         <!--                                </div>-->
                                     </div>
                                     <div class="price d-flex align-items-center">
-                                        <h6><b><?php echo number_format($product['product_price'], 0, ',', '.'); ?>
+                                        <h6 style="color: red"><b><?php echo number_format($product['product_price'], 0, ',', '.'); ?>
                                                 Đ</b></h6>
                                     </div>
                                     <div class="iq-product-action">
