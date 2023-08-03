@@ -83,8 +83,6 @@
                     </ul>
                 </li>
 
-                <li><a href="book-page.html"><i class="ri-book-line"></i>Yêu Thích</a></li>
-
                 <li><a href="sign-in.html"><i class="ri-book-line"></i>Logout</a></li>
             </ul>
         </nav>
