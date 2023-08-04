@@ -24,11 +24,12 @@ use frontend\models\Product;
                                                 <img class="img-fluid rounded w-100"
                                                      src="<?= Yii::$app->homeUrl.$value['product_image'] ?>"
                                                      style="object-fit: cover; height: 280px; width: 220px"
-                                                     alt="">
+                                                     alt="$value['product_name']">
                                             </a>
                                             <div class="view-book">
-                                                <a href="book-page.html" class="btn btn-sm btn-white">
-                                                    Mua Ngay
+                                                <a href="<?= Yii::$app->homeUrl?>product/detail?id=<?php echo $value["product_id"] ?>" class="btn btn-sm btn-white">
+<!--                                                    --><?php //= Yii::$app->homeUrl.'product/detail/'.$value['product_id'] ?>
+                                                    Xem
                                                 </a>
                                             </div>
                                         </div>

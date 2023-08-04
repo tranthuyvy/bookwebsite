@@ -39,7 +39,7 @@ class Product extends \yii\db\ActiveRecord
             [['product_name', 'product_image', 'product_price', 'group_id', 'supplier_id', 'author_id', 'user_id', 'created_at', 'updated_at'], 'required', 'message'=>'{attribute} không được để trống'],
             [['product_price'], 'number'],
             [['group_id', 'supplier_id', 'author_id', 'status', 'user_id', 'created_at', 'updated_at'], 'integer'],
-            [['product_name', 'product_image', 'product_description'], 'string', 'max' => 255],
+            [['product_name', 'product_image', 'product_description'], 'string', 'max' => 10000],
         ];
     }
 

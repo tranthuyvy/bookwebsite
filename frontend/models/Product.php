@@ -41,7 +41,7 @@ class Product extends \yii\db\ActiveRecord
             [['product_price'], 'number'],
             [['product_description'], 'string'],
             [['group_id', 'supplier_id', 'author_id', 'status', 'user_id', 'created_at', 'updated_at'], 'integer'],
-            [['product_name', 'product_image'], 'string', 'max' => 255],
+            [['product_name', 'product_image'], 'string', 'max' => 10000],
         ];
     }
 
@@ -126,5 +126,19 @@ class Product extends \yii\db\ActiveRecord
             ->where('supplier_id=:supplier_id', ['supplier_id'=>$id])
             ->all();
         return $data_supplier;
+    }
+
+    public function getProductById($id){
+        $data_detail = Product::find()
+            ->asArray()
+            ->where('product_id=:id', ['id' => $id])
+            ->one();
+        return $data_detail;
+    }
+
+    public function getAuthor($id)
+    {
+        $author_data = Author::findOne($id);
+        return $author_data;
     }
 }
