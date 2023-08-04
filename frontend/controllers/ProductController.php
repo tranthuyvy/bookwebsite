@@ -3,7 +3,6 @@
 namespace frontend\controllers;
 
 use frontend\models\Product;
-use frontend\models\Author;
 
 class ProductController extends \yii\web\Controller
 {
@@ -41,23 +40,11 @@ class ProductController extends \yii\web\Controller
 
     public function actionDetail($id)
     {
+//        $data_detail = Product::getProductById($id);
         $data_detail = new Product();
         $data_detail = $data_detail->getProductById($id);
 
-        // Kiểm tra nếu product có tác giả
-        if (!empty($data_detail['author_id'])) {
-            $author_data = new Product();
-            $author_data = $author_data->getAuthor($data_detail['author_id']);
-
-            // Kiểm tra nếu tìm thấy tác giả
-            if ($author_data !== null) {
-                $author_name = $author_data['author_name'];
-            } else {
-                $author_name = '';
-            }
-        } else {
-            $author_name = '';
-        }
+        $author_name = Product::getAuthorName($data_detail['author_id']);
 
         return $this->render('detail', [
             'data_detail' => $data_detail,

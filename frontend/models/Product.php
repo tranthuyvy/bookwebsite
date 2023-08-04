@@ -136,9 +136,11 @@ class Product extends \yii\db\ActiveRecord
         return $data_detail;
     }
 
-    public function getAuthor($id)
+    public static function getAuthorName($author_id)
     {
-        $author_data = Author::findOne($id);
-        return $author_data;
+        $author = Author::findOne(['author_id' => $author_id]);
+
+        return $author ? $author->author_name : null;
     }
+
 }

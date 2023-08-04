@@ -8,7 +8,7 @@ use frontend\models\Product;
         <div class="col-sm-12">
             <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                 <div class="iq-card-header d-flex justify-content-between align-items-center">
-                    <h4 class="card-title mb-0">Chi Tiết Sản Phẩm</h4>
+<!--                    <h4 class="card-title mb-0">Chi Tiết Sản Phẩm</h4>-->
                 </div>
                 <div class="iq-card-body pb-0">
                     <div class="description-contens align-items-top row">
@@ -163,108 +163,32 @@ use frontend\models\Product;
             <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                 <div class="iq-card-header d-flex justify-content-between align-items-center position-relative">
                     <div class="iq-header-title">
-                        <h4 class="card-title mb-0">Sản phẩm tương tự</h4>
+                        <h4 class="card-title mb-0">Parity Product</h4>
                     </div>
-                    <div class="iq-card-header-toolbar d-flex align-items-center">
-                        <a href="category.html" class="btn btn-sm btn-primary view-more">Xem thêm</a>
-                    </div>
+<!--                    <div class="iq-card-header-toolbar d-flex align-items-center">-->
+<!--                        <a href="category.html" class="btn btn-sm btn-primary view-more">Xem thêm</a>-->
+<!--                    </div>-->
                 </div>
                 <div class="iq-card-body single-similar-contens">
                     <ul id="single-similar-slider" class="list-inline p-0 mb-0 row">
-                        <li class="col-md-3">
+                        <li class="col-md-12">
                             <div class="row align-items-center">
                                 <div class="col-5">
                                     <div class="position-relative image-overlap-shadow">
-                                        <a href="javascript:void();"><img class="img-fluid rounded w-100"
-                                                                          src="images/similar-books/01.jpg" alt=""></a>
+                                        <a href="javascript:void();">
+                                            <img class="img-fluid rounded w-100"
+                                                 src="<?= Yii::$app->homeUrl.$data_detail['product_image'] ?>"
+                                                 style="object-fit: cover; height: 300px; width: 200px"
+                                                 alt="">
+                                        </a>
                                         <div class="view-book">
-                                            <a href="book-page.html" class="btn btn-sm btn-white">Xem thêm</a>
+                                            <a href="book-page.html" class="btn btn-sm btn-white">Xem</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-7 pl-0">
                                     <h6 class="mb-2">Nhà Đầu Tư Thông Minh...</h6>
                                     <p class="text-body">Dịch giả : Lê Quốc Phương</p>
-                                    <a href="#" class="text-dark" tabindex="-1">Đọc ngay<i
-                                                class="ri-arrow-right-s-line"></i></a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-md-3">
-                            <div class="row align-items-center">
-                                <div class="col-5">
-                                    <div class="position-relative image-overlap-shadow">
-                                        <a href="javascript:void();"><img class="img-fluid rounded w-100"
-                                                                          src="images/similar-books/02.jpg" alt=""></a>
-                                        <div class="view-book">
-                                            <a href="book-page.html" class="btn btn-sm btn-white">Xem sách</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-7 pl-0">
-                                    <h6 class="mb-2">Nhà Lãnh Đạo Không Chức Danh</h6>
-                                    <p class="text-body">Tác giả : NXB Trẻ</p>
-                                    <a href="#" class="text-dark" tabindex="-1">Đọc ngay<i
-                                                class="ri-arrow-right-s-line"></i></a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-md-3">
-                            <div class="row align-items-center">
-                                <div class="col-5">
-                                    <div class="position-relative image-overlap-shadow">
-                                        <a href="javascript:void();"><img class="img-fluid rounded w-100"
-                                                                          src="images/similar-books/03.jpg" alt=""></a>
-                                        <div class="view-book">
-                                            <a href="book-page.html" class="btn btn-sm btn-white">Xem sách</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-7 pl-0">
-                                    <h6 class="mb-2">Nghệ Thuật đầu tư Dhandho...</h6>
-                                    <p class="text-body">Tác giả : Bill Emia</p>
-                                    <a href="#" class="text-dark" tabindex="-1">Đọc ngay<i
-                                                class="ri-arrow-right-s-line"></i></a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-md-3">
-                            <div class="row align-items-center">
-                                <div class="col-5">
-                                    <div class="position-relative image-overlap-shadow">
-                                        <a href="javascript:void();"><img class="img-fluid rounded w-100"
-                                                                          src="images/similar-books/04.jpg" alt=""></a>
-                                        <div class="view-book">
-                                            <a href="book-page.html" class="btn btn-sm btn-white">Xem sách</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-7 pl-0">
-                                    <h6 class="mb-2">Từ Tốt Đến Vĩ Đại.</h6>
-                                    <p class="text-body">Tác giả : Hal Appeno</p>
-                                    <a href="#" class="text-dark" tabindex="-1">Đọc ngay<i
-                                                class="ri-arrow-right-s-line"></i></a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-md-3">
-                            <div class="row align-items-center">
-                                <div class="col-5">
-                                    <div class="position-relative image-overlap-shadow">
-                                        <a href="javascript:void();">
-                                            <img class="img-fluid rounded w-100"
-                                                 src="common/images/similar-books/05.jpg" alt="">
-                                        </a>
-                                        <div class="view-book">
-                                            <a href="book-page.html" class="btn btn-sm btn-white">Xem sách</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-7 pl-0">
-                                    <h6 class="mb-2">D. Trump - Đừng Bao Giờ Bỏ Cuộc..</h6>
-                                    <p class="text-body">Tác giả : Zack Lee</p>
-                                    <a href="#" class="text-dark" tabindex="-1">Đọc ngay<i
-                                                class="ri-arrow-right-s-line"></i></a>
                                 </div>
                             </div>
                         </li>
