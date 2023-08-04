@@ -44,11 +44,18 @@ class ProductController extends \yii\web\Controller
         $data_detail = new Product();
         $data_detail = $data_detail->getProductById($id);
 
-        $author_name = Product::getAuthorName($data_detail['author_id']);
+//        $author_name = Product::getAuthorName($data_detail['author_id']);
+        $author_name = new Product();
+        $author_name = $author_name->getAuthorName($data_detail['author_id']);
+
+
+        $related_product = new Product();
+        $related_product = $related_product->getRelatedProduct($data_detail['group_id'], $id);
 
         return $this->render('detail', [
             'data_detail' => $data_detail,
             'author_name' => $author_name,
+            'related_product' => $related_product,
         ]);
     }
 }

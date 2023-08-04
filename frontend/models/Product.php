@@ -143,4 +143,16 @@ class Product extends \yii\db\ActiveRecord
         return $author ? $author->author_name : null;
     }
 
+    public static function getRelatedProduct($group_id, $product_id, $limit = 5)
+    {
+        $data_related = Product::find()
+            ->where(['group_id' => $group_id])
+            ->andWhere(['not', ['product_id' => $product_id]])
+            ->limit($limit)
+            ->asArray()
+            ->all();
+
+        return $data_related;
+    }
+
 }

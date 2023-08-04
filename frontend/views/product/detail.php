@@ -113,7 +113,7 @@ use frontend\models\Product;
                                                         Đ
                                         </span>
                                         <span class="font-size-24 text-dark">
-                                            <b>
+                                            <b style="color: red">
                                                 <?php echo number_format($data_detail['product_price'], 0, ',', '.'); ?>
                                                 Đ
                                             </b>
@@ -148,7 +148,7 @@ use frontend\models\Product;
                                     <div class="mb-3">
                                         <a href="#" class="text-body text-center"><span
                                                     class="avatar-30 rounded-circle bg-primary d-inline-block mr-2"><i
-                                                        class="ri-heart-fill"></i></span><span>Thêm vào danh sách yêu thích</span></a>
+                                                        class="ri-heart-fill"></i></span><span>Add Wishlist</span></a>
                                     </div>
                                 </div>
                             </div>
@@ -163,7 +163,7 @@ use frontend\models\Product;
             <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                 <div class="iq-card-header d-flex justify-content-between align-items-center position-relative">
                     <div class="iq-header-title">
-                        <h4 class="card-title mb-0">Parity Product</h4>
+                        <h4 class="card-title mb-0">Related Products</h4>
                     </div>
 <!--                    <div class="iq-card-header-toolbar d-flex align-items-center">-->
 <!--                        <a href="category.html" class="btn btn-sm btn-primary view-more">Xem thêm</a>-->
@@ -171,27 +171,34 @@ use frontend\models\Product;
                 </div>
                 <div class="iq-card-body single-similar-contens">
                     <ul id="single-similar-slider" class="list-inline p-0 mb-0 row">
+                        <?php foreach ($related_product as $key=>$value) {
+
+                        ?>
                         <li class="col-md-12">
                             <div class="row align-items-center">
                                 <div class="col-5">
                                     <div class="position-relative image-overlap-shadow">
-                                        <a href="javascript:void();">
+                                        <a href="">
                                             <img class="img-fluid rounded w-100"
-                                                 src="<?= Yii::$app->homeUrl.$data_detail['product_image'] ?>"
+                                                 src="<?= Yii::$app->homeUrl.$value['product_image'] ?>"
                                                  style="object-fit: cover; height: 300px; width: 200px"
                                                  alt="">
                                         </a>
                                         <div class="view-book">
-                                            <a href="book-page.html" class="btn btn-sm btn-white">Xem</a>
+                                            <a href="<?= Yii::$app->homeUrl?>product/detail?id=<?php echo $value["product_id"] ?>"
+                                               class="btn btn-sm btn-white">Xem
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-7 pl-0">
-                                    <h6 class="mb-2">Nhà Đầu Tư Thông Minh...</h6>
-                                    <p class="text-body">Dịch giả : Lê Quốc Phương</p>
+                                    <h6 class="mb-2"><?php echo $value['product_name']; ?></h6>
+                                    <p class="text-body">Tác giả : <?php echo $author_name; ?></p>
+                                    <p style="color: red"><b><?php echo number_format($value['product_price'], 0, ',', '.'); ?> Đ</b></p>
                                 </div>
                             </div>
                         </li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>
