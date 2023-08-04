@@ -27,8 +27,8 @@ use frontend\models\Product;
                                                      alt="">
                                             </a>
                                             <div class="view-book">
-                                                <a href="book-page.html" class="btn btn-sm btn-white">
-                                                    Mua Ngay
+                                                <a href="<?= Yii::$app->homeUrl?>product/detail?id=<?php echo $value["product_id"] ?>" class="btn btn-sm btn-white">
+                                                    Xem
                                                 </a>
                                             </div>
                                         </div>

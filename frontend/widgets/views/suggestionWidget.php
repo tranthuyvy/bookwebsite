@@ -21,7 +21,7 @@
                 <li class="col-md-4">
                     <div class="d-flex align-items-center">
                         <div class="col-5 p-0 position-relative">
-                            <a href="javascript:void();">
+                            <a href="<?= Yii::$app->homeUrl?>product/detail?id=<?php echo $product["product_id"] ?>">
                                 <img src="<?php echo $product['product_image']; ?>"
                                      class="img-fluid rounded w-100"
                                      style="object-fit: cover; height: 280px; width: 220px"
