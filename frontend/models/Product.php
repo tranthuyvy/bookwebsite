@@ -103,4 +103,12 @@ class Product extends \yii\db\ActiveRecord
 
         return $dataSuggestion;
     }
+
+    public function getProductByGroupId($id){
+        $data = Product::find()
+            ->asArray()
+            ->where('group_id=:group_id', ['group_id'=>$id])
+            ->all();
+        return $data;
+    }
 }

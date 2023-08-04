@@ -2,6 +2,8 @@
     use frontend\models\Group;
     use frontend\models\Author;
     use frontend\models\Supplier;
+    use yii\bootstrap5\Nav;
+    use yii\bootstrap5\NavBar;
 ?>
 <div class="iq-sidebar">
     <div class="iq-sidebar-logo d-flex justify-content-between">
@@ -15,6 +17,7 @@
     <div id="sidebar-scrollbar">
         <nav class="iq-sidebar-menu">
             <ul id="iq-sidebar-toggle" class="iq-menu">
+
                 <li class="active active-menu">
                     <a href="#dashboard" class="iq-waves-effect" data-toggle="collapse"
                        aria-expanded="true"><span class="ripple rippleEffect"></span><i
@@ -23,23 +26,18 @@
                     <ul id="dashboard" class="iq-submenu collapse show" data-parent="#iq-sidebar-toggle">
                     </ul>
                 </li>
-                <li>
-                    <a href="#ui-elements" class="iq-waves-effect collapsed" data-toggle="collapse"
-                       aria-expanded="false"><i class="lab la-elementor iq-arrow-left"></i><span>Thể Loại Sách</span><i
-                            class="ri-arrow-right-s-line iq-arrow-right"></i></a>
-                    <ul id="ui-elements" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
 
+                <li>
+                    <a href="#ui-elements" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="lab la-elementor iq-arrow-left"></i><span>Thể Loại</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                    <ul id="ui-elements" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                         <?php
-                            foreach ($dataGroup as $key=>$value){
-                        ?>
-                        <li class="elements">
-                            <a href="#sub-menu" class="iq-waves-effect collapsed" data-toggle="collapse"
-                               aria-expanded="false">
-                                <i class="ri-play-circle-line"></i>
-                                <span><?php echo $value["group_name"] ?></span>
-                                <i class="ri-arrow-right-s-line iq-arrow-right"></i>
-                            </a>
-                        </li>
+                        foreach ($dataGroup as $key => $value) {
+                            ?>
+                            <li>
+                                <a href="<?= Yii::$app->homeUrl?>product/listproduct?id=<?php echo $value["group_id"] ?>">
+                                    <i class="ri-question-answer-line"></i><?php echo $value["group_name"] ?>
+                                </a>
+                            </li>
                         <?php } ?>
                     </ul>
                 </li>
@@ -55,11 +53,12 @@
                             foreach ($dataAuthor as $key=>$value) {
                         ?>
                         <li>
-                            <a href="admin-dashboard.html">
-                                <i class="ri-question-answer-line"></i><?php echo $value["author_name"]?></a>
+                            <a href="<?=Yii::$app->homeUrl?>product/listProduct?id=<?php echo $value["author_id"] ?>">
+                                <i class="ri-question-answer-line"></i>
+                                <?php echo $value["author_name"]?>
+                            </a>
                         </li>
                         <?php } ?>
-
                     </ul>
                 </li>
 
@@ -74,7 +73,7 @@
                             foreach ($dataSupplier as $key=>$value) {
                         ?>
                         <li>
-                            <a href="pages-comingsoon.html">
+                            <a href="<?=Yii::$app->homeUrl?>product/listProduct?id=<?php echo $value["supplier_id"] ?>">
                                 <i class="ri-mastercard-line"><?php echo $value["supplier_name"]?></i>
                             </a>
                         </li>
