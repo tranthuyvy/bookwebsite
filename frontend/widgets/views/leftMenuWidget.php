@@ -53,7 +53,7 @@
                             foreach ($dataAuthor as $key=>$value) {
                         ?>
                         <li>
-                            <a href="<?=Yii::$app->homeUrl?>product/listProduct?id=<?php echo $value["author_id"] ?>">
+                            <a href="<?= Yii::$app->homeUrl?>product/listproductbyauthor?id=<?php echo $value["author_id"] ?>">
                                 <i class="ri-question-answer-line"></i>
                                 <?php echo $value["author_name"]?>
                             </a>

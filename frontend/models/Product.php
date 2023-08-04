@@ -111,4 +111,12 @@ class Product extends \yii\db\ActiveRecord
             ->all();
         return $data;
     }
+
+    public function getProductByAuthorId($id){
+        $data_author = Product::find()
+            ->asArray()
+            ->where('author_id=:author_id', ['author_id'=>$id])
+            ->all();
+        return $data_author;
+    }
 }
