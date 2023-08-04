@@ -73,7 +73,7 @@
                             foreach ($dataSupplier as $key=>$value) {
                         ?>
                         <li>
-                            <a href="<?=Yii::$app->homeUrl?>product/listProduct?id=<?php echo $value["supplier_id"] ?>">
+                            <a href="<?= Yii::$app->homeUrl?>product/listproductbysupplier?id=<?php echo $value["supplier_id"] ?>">
                                 <i class="ri-mastercard-line"><?php echo $value["supplier_name"]?></i>
                             </a>
                         </li>

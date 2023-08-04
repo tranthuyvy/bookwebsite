@@ -119,4 +119,12 @@ class Product extends \yii\db\ActiveRecord
             ->all();
         return $data_author;
     }
+
+    public function getProductBySupplierId($id){
+        $data_supplier = Product::find()
+            ->asArray()
+            ->where('supplier_id=:supplier_id', ['supplier_id'=>$id])
+            ->all();
+        return $data_supplier;
+    }
 }

@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use frontend\models\Product;
+use frontend\models\Supplier;
 
 class ProductController extends \yii\web\Controller
 {
@@ -26,6 +27,15 @@ class ProductController extends \yii\web\Controller
 
         return $this->render('listProductByAuthor', [
             "data_author" => $data_author,
+        ]);
+    }
+
+    public function  actionListproductbysupplier($id){
+        $data_supplier = new Product();
+        $data_supplier = $data_supplier->getProductBySupplierId($id);
+
+        return $this->render('listProductBySupplier', [
+           "data_supplier" => $data_supplier,
         ]);
     }
 }
