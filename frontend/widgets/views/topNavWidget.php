@@ -93,6 +93,24 @@
                             </div>
                         </div>
                     </li>
+                    <li class="nav-item nav-icon dropdown">
+                        <?php
+                            if (Yii::$app->user->isGuest){
+                        ?>
+                        <a href="<?php echo Yii::$app->homeUrl ?>site/login" class="search-toggle iq-waves-effect text-gray rounded">
+                            <i class="icon fa fa-lock"></i>
+                        </a>
+                    </li>
+                    <li class="search-toggle iq-waves-effect text-gray rounded">
+                        <?php }else {
+                                echo \yii\helpers\Html::beginForm(['/site/logout'],'post');
+                                echo \yii\helpers\Html::submitButton(
+                                        'Logout('.Yii::$app->user->identity->username.')',
+                                    ['class'=>'btn btn-link']
+                                );
+                                echo \yii\helpers\Html::endForm();
+                        }?>
+                    </li>
                     <li class="line-height pt-3">
                         <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center">
                             <img src="common/images/user/2.jpg" class="img-fluid rounded-circle mr-3" alt="user">
