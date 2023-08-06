@@ -58,7 +58,9 @@ AppAsset::register($this);
 
         function addCart(id){
             $.get('<?php echo Yii::$app->homeUrl . 'shopping/addcart' ?>', {'id': id}, function (data) {
-                alert("Success");
+                val = data.split("-");
+                $("#amount").text(val[0]);
+                $("#total").text(val[1]);
             });
         }
     </script>

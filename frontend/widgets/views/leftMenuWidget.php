@@ -82,7 +82,9 @@
                     </ul>
                 </li>
 
-                <li><a href="sign-in.html"><i class="ri-book-line"></i>Logout</a></li>
+                <li>
+                    <a href="sign-in.html"><i class="ri-book-line"></i>Sản Phẩm Yêu Thích</a>
+                </li>
             </ul>
         </nav>
     </div>

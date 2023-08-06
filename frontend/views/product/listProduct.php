@@ -55,10 +55,12 @@ use frontend\models\Product;
                                                     <b><?php echo number_format($value['product_price'], 0, ',', '.'); ?>
                                                         Đ</b></h6>
                                             </div>
-                                            <button class="btn btn-outline-primary" type="button" onlick="addCart(<?= $value["product_id"]?>)">
+
+                                            <button class="btn btn-outline-primary" type="button" onclick="addCart(<?= $value['product_id']; ?>)">
                                                 <i class="ri-shopping-cart-2-fill text-primary"></i>
                                             </button>
-                                            <button class="btn btn-outline-danger" type="button" onclick="addWishlist(<?= $value['product_id']; ?>)" class="ml-2">
+
+                                            <button class="btn btn-outline-danger" type="button" onclick="addWishlist(<?= $value['product_id']; ?>)">
                                                 <i class="ri-heart-fill text-danger"></i>
                                             </button>
                                         </div>

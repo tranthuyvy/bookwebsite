@@ -1,5 +1,5 @@
 <?php
-
+    use yii\bootstrap5\Html;
 ?>
 
 <div class="iq-top-navbar">
@@ -48,14 +48,14 @@
                     <li class="nav-item nav-icon dropdown">
                         <a href="#" class="search-toggle iq-waves-effect text-gray rounded">
                             <i class="ri-shopping-cart-2-line"></i>
-                            <span class="badge badge-danger count-cart rounded-circle">2</span>
+                            <span class="badge badge-danger count-cart rounded-circle" id="amount">0</span>
                         </a>
+
                         <div class="iq-sub-dropdown">
                             <div class="iq-card shadow-none m-0">
                                 <div class="iq-card-body p-0 toggle-cart-info">
                                     <div class="bg-primary p-3">
-                                        <h5 class="mb-0 text-white">Giỏ Hàng<small
-                                                class="badge  badge-light float-right pt-1">2</small></h5>
+                                        <h5 class="mb-0 text-white">Giỏ Hàng</h5>
                                     </div>
                                     <a href="#" class="iq-sub-card">
                                         <div class="media align-items-center">
@@ -83,12 +83,20 @@
                                                     class="ri-close-fill"></i></div>
                                         </div>
                                     </a>
+
+                                    <div class="d-flex align-items-center text-right p-3">
+                                        <div style="margin-top: 10px; float:right">
+                                            <span>Total: </span>
+                                            <span class="value" id="total">0</span>
+                                        </div>
+                                    </div>
                                     <div class="d-flex align-items-center text-center p-3">
                                         <a class="btn btn-primary mr-2 iq-sign-btn" href="checkout.html"
                                            role="button">Giỏ Hàng</a>
                                         <a class="btn btn-primary iq-sign-btn" href="checkout.html"
                                            role="button">Thanh Toán</a>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -103,12 +111,12 @@
                     </li>
                     <li class="search-toggle iq-waves-effect text-gray rounded">
                         <?php }else {
-                                echo \yii\helpers\Html::beginForm(['/site/logout'],'post');
-                                echo \yii\helpers\Html::submitButton(
+                                echo Html::beginForm(['/site/logout'],'post');
+                                echo Html::submitButton(
                                         'Logout('.Yii::$app->user->identity->username.')',
                                     ['class'=>'btn btn-link']
                                 );
-                                echo \yii\helpers\Html::endForm();
+                                echo Html::endForm();
                         }?>
                     </li>
                     <li class="line-height pt-3">
