@@ -146,9 +146,13 @@ use frontend\models\Product;
                                     </div>
 
                                     <div class="mb-3">
-                                        <a href="#" class="text-body text-center"><span
-                                                    class="avatar-30 rounded-circle bg-primary d-inline-block mr-2"><i
-                                                        class="ri-heart-fill"></i></span><span>Add Wishlist</span></a>
+                                        <a href="javascript:void(0);" class="text-body text-center">
+                                            <span class="avatar-30 rounded-circle bg-primary d-inline-block mr-2"
+                                                  onclick="addWishlist(<?= $data_detail['product_id']; ?>)">
+                                                <i class="ri-heart-fill"></i>
+                                            </span>
+                                            <span>Add Wishlist</span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
