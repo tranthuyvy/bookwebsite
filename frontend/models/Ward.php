@@ -46,4 +46,12 @@ class Ward extends \yii\db\ActiveRecord
             'district_id' => 'District ID',
         ];
     }
+
+    public function getWardById($id){
+        $data = Ward::find()
+            ->asArray()
+            ->where('district_id=:id',['id'=>$id])
+            ->all();
+        return $data;
+    }
 }

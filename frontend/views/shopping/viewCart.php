@@ -161,6 +161,7 @@
                                             <select class="form-control unicase-form-control"
                                                     id="province" name="province"
                                                     onchange="getDistrict(this.value)">
+                                                <option>--Select options--</option>
                                                 <?php
                                                     foreach ($province as $key=>$value){
                                                         echo '<option value="'.$value["province_id"].'">'.$value["province_name"].'</option>';
@@ -173,22 +174,18 @@
                                             <label class="info-title control-label">District
                                                 <span>*</span></label>
                                             <select class="form-control unicase-form-control"
-                                                    id="district" name="district">
+                                                    id="district" name="district"
+                                                    onchange="getWard(this.value)">
                                                 <option>--Select options--</option>
-
 
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label class="info-title control-label">Ward
                                                 <span>*</span></label>
-                                            <select class="form-control unicase-form-control">
+                                            <select class="form-control unicase-form-control" id="ward" name="ward">
                                                 <option>--Select options--</option>
-                                                <option>TamilNadu</option>
-                                                <option>Kerala</option>
-                                                <option>Andhra Pradesh</option>
-                                                <option>Karnataka</option>
-                                                <option>Madhya Pradesh</option>
+
                                             </select>
                                         </div>
 

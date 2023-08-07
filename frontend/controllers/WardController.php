@@ -131,4 +131,11 @@ class WardController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
+    public function actionGetward($id){
+        $ward = new Ward();
+        $ward = $ward->getWardById($id);
+
+        return $this->renderAjax("wardOption",['data'=>$ward]);
+    }
 }

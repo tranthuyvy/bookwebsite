@@ -42,6 +42,11 @@ function updateCart(id){
 function getDistrict(id){
     $.get(urlBase+'district/getdistrict', {'id': id}, function (data) {
         $('#district').html(data);
+    });
+}
 
+function getWard(id){
+    $.get(urlBase+'ward/getward', {'id': id}, function (data) {
+        $('#ward').html(data);
     });
 }
