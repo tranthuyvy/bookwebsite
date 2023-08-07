@@ -47,6 +47,7 @@ class AppAsset extends AssetBundle
         'common/js/style-customizer.js',
         'common/js/chart-custom.js',
         'common/js/custom.js',
+        'common/js/common.js',
 
     ];
     public $depends = [

@@ -41,30 +41,6 @@ AppAsset::register($this);
     <!-- Footer END -->
 
     <?php $this->endBody() ?>
-    <script>
-        function addWishlist(id) {
-            $.get('<?php echo Yii::$app->homeUrl . 'wishlist/add' ?>', {'id': id}, function (data) {
-                alert("Success");
-            });
-        }
-
-        function addCart(id){
-            $.get('<?php echo Yii::$app->homeUrl . 'shopping/addcart' ?>', {'id': id}, function (data) {
-                val = data.split("-");
-                $("#amount").text(val[0]);
-                $("#total").text(val[1]);
-            });
-        }
-
-        function deleteCart(id){
-            $.get('<?php echo Yii::$app->homeUrl . 'shopping/deletecart' ?>', {'id': id}, function (data) {
-                val = data.split("-");
-                $("#amount").text(val[0]);
-                $("#total").text(val[1]);
-                $("#item_"+id).remove();
-            });
-        }
-    </script>
     </body>
     </html>
 <?php $this->endPage();

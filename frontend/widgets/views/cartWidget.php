@@ -1,10 +1,11 @@
 <?php
 $totalAmount = $total = 0;
 if (is_array($infoCart)) {
-foreach ($infoCart as $key => $value) {
-    $totalAmount += $value['amount'];
-    $total += $value['product_price'] * $value['amount'];
-}}
+    foreach ($infoCart as $key => $value) {
+        $totalAmount += $value['amount'];
+        $total += $value['product_price'] * $value['amount'];
+    }
+}
 ?>
 <li class="nav-item nav-icon dropdown">
     <a href="#" class="search-toggle iq-waves-effect text-gray rounded">
@@ -20,7 +21,7 @@ foreach ($infoCart as $key => $value) {
                 </div>
                 <?php
                     if (is_array($infoCart)) {
-                    foreach ($infoCart as $key => $value) {
+                        foreach ($infoCart as $key => $value) {
                 ?>
                 <a href="javascript:void(0)" class="iq-sub-card" id="item_<?= $key ?>">
                     <div class="media align-items-center">

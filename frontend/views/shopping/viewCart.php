@@ -10,7 +10,7 @@
                                     <h4 class="card-title">Giỏ hàng</h4>
                                 </div>
                             </div>
-                            <div class="iq-card-body">
+                            <div class="iq-card-body" id="listCart">
                                 <ul class="list-inline p-0 m-0">
                                     <?php
                                         foreach ($cart as $key => $value){
@@ -33,7 +33,7 @@
                                                     <h5><?= $value["product_name"]?></h5>
                                                     <p class="text-success">Còn hàng</p>
                                                     <div class="price">
-                                                        <h5>
+                                                        <h5 style="color: red">
                                                             <?php echo number_format($value['product_price'], 0, ',', '.'); ?>Đ
                                                         </h5>
                                                     </div>
@@ -47,21 +47,34 @@
                                                                 <button type="button" class="fa fa-minus qty-btn"
                                                                         id="btn-minus">
                                                                 </button>
-                                                                <input type="text" id="quantity" value="<?php echo $value['amount']?>">
+
+                                                                <input style="width:40px; height: 30px; padding: 12px " type="text"
+                                                                       id="amount_<?php echo $key ?>"
+                                                                       name="amount_<?php echo $key ?>"
+                                                                       value="<?php echo $value['amount']?>">
+
                                                                 <button type="button" class="fa fa-plus qty-btn"
                                                                         id="btn-plus">
                                                                 </button>
                                                             </div>
                                                             <div class="col-sm-5 col-md-6">
                                                                 <span class="product-price">
-                                                                <?php echo number_format($value['product_price'] * $value['amount'], 0, ',', '.'); ?>Đ
+                                                                    <h5 style="color: red">
+                                                                        <?php echo number_format($value['product_price'] * $value['amount'], 0, ',', '.'); ?>Đ
+                                                                    </h5>
                                                                 </span>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-2">
-                                                        <a href="javascript:void();" class="text-dark font-size-20"><i
-                                                                    class="ri-delete-bin-7-fill"></i></a>
+                                                        <a href="javascript:void(0);" onclick="deleteCart(<?php echo $key?>)" class="text-dark font-size-20">
+                                                            <i class="ri-delete-bin-7-fill"></i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <a href="javascript:void(0);" onclick="updateCart(<?php echo $key?>)" class="text-dark font-size-20">
+                                                            <i class="ri-edit-2-line"></i>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>

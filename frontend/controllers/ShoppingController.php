@@ -46,6 +46,21 @@ class ShoppingController extends \yii\web\Controller
         return $this->renderAjax('cart',['cartInfo'=>$totalAmount."-".$total]);
     }
 
+    public function actionUpdatecart($id){
+        $session = Yii::$app->session;
+        $amount = Yii::$app->getRequest()->getQueryParam('amount');
+        $cart = new cart();
+        $cart = $cart->updateItem($id, $amount);
+        $infoCart = $session['cart'];
+        $totalAmount = $total = 0;
+        foreach ($infoCart as $key => $value) {
+            $totalAmount += $value['amount'];
+            $total += $value['product_price']*$value['amount'];
+        }
+        return $this->renderAjax('cart',['cartInfo'=>$totalAmount."-".$total]);
+
+    }
+
     public function actionViewcart(){
         $this->layout='cartlayout';
         $session = Yii::$app->session;
