@@ -25,7 +25,9 @@ class m230729_120735_order extends Migration
             'user_email' => $this->string(255)->notNull(),
             'user_mobile' => $this->integer(11)->notNull(),
             'user_address' => $this->string(255)->notNull(),
+            'totalMoney' => $this->decimal(10,2)->notNull(),
             'payment_id' => $this->integer(11)->notNull(),
+            'province_id' => $this->integer(11)->notNull(),
             'status' => $this->smallInteger()->notNull()->defaultValue(10),
             'created_at' => $this->integer()->notNull()
         ], $tableOptions);

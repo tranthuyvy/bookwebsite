@@ -134,31 +134,98 @@
                             </div>
                         </div>
 
+                        <form action="" method="post">
+                            <div class="iq-card" style="height: 360px">
+                                <div class="card-body iq-card-body p-0 iq-checkout-policy">
+                                    <div class="col-md-12 col-sm-12 estimate-ship-tax">
+                                        <span class="estimate-title">Thông Tin Mua Hàng</span>
+                                        <p>Nhập đầy đủ thông tin</p>
+                                        <div class="form-group">
+                                            <label class="info-title control-label">Name</label>
+                                            <input type="text"
+                                                   class="form-control unicase-form-control text-input"
+                                                   name="user_name"
+                                                   id="user_name"
+                                                   placeholder="Input your name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="info-title control-label">Name</label>
+                                            <input type="text"
+                                                   class="form-control unicase-form-control text-input"
+                                                   name="user_name"
+                                                   id="user_name"
+                                                   placeholder="Input your name">
+                                        </div>
 
-                        <div class="iq-card ">
-                            <div class="card-body iq-card-body p-0 iq-checkout-policy">
-                                <ul class="p-0 m-0">
-                                    <li class="d-flex align-items-center">
-                                        <div class="iq-checkout-icon">
-                                            <i class="ri-checkbox-line"></i>
+
+                                        <div class="form-group">
+                                            <label class="info-title control-label">Province <span>*</span></label>
+                                            <select class="form-control unicase-form-control">
+                                                <option>--Select options--</option>
+                                                <option>India</option>
+                                                <option>SriLanka</option>
+                                                <option>united kingdom</option>
+                                                <option>saudi arabia</option>
+                                                <option>united arab emirates</option>
+                                            </select>
                                         </div>
-                                        <h6>Chính sách bảo mật (Thanh toán an toàn và bảo mật.)</h6>
-                                    </li>
-                                    <li class="d-flex align-items-center">
-                                        <div class="iq-checkout-icon">
-                                            <i class="ri-truck-line"></i>
+                                        <div class="form-group">
+                                            <label class="info-title control-label">District
+                                                <span>*</span></label>
+                                            <select class="form-control unicase-form-control">
+                                                <option>--Select options--</option>
+                                                <option>TamilNadu</option>
+                                                <option>Kerala</option>
+                                                <option>Andhra Pradesh</option>
+                                                <option>Karnataka</option>
+                                                <option>Madhya Pradesh</option>
+                                            </select>
                                         </div>
-                                        <h6>Chính sách giao hàng (Giao hàng tận nhà.)</h6>
-                                    </li>
-                                    <li class="d-flex align-items-center">
-                                        <div class="iq-checkout-icon">
-                                            <i class="ri-arrow-go-back-line"></i>
+                                        <div class="form-group">
+                                            <label class="info-title control-label">Ward
+                                                <span>*</span></label>
+                                            <select class="form-control unicase-form-control">
+                                                <option>--Select options--</option>
+                                                <option>TamilNadu</option>
+                                                <option>Kerala</option>
+                                                <option>Andhra Pradesh</option>
+                                                <option>Karnataka</option>
+                                                <option>Madhya Pradesh</option>
+                                            </select>
                                         </div>
-                                        <h6>Chính sách hoàn trả</h6>
-                                    </li>
-                                </ul>
+
+                                        <div class="form-group">
+                                            <label class="info-title control-label">Address</label>
+                                            <input type="text"
+                                                   class="form-control unicase-form-control text-input"
+                                                   name="address"
+                                                   id="address"
+                                                   placeholder="Input address">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="info-title control-label">Phone</label>
+                                            <input type="text"
+                                                   class="form-control unicase-form-control text-input"
+                                                   name="phone"
+                                                   id="phone"
+                                                   placeholder="Input phone">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="info-title control-label">Email</label>
+                                            <input type="text"
+                                                   class="form-control unicase-form-control text-input"
+                                                   name="email"
+                                                   id="email"
+                                                   placeholder="Input email">
+                                        </div>
+                                        <div class="pull-right">
+                                            <button type="submit" class="btn-upper btn btn-primary">GET A QOUTE</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        </form>
+
                     </div>
                 </div>
             </div>
