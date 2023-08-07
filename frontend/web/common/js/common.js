@@ -38,3 +38,10 @@ function updateCart(id){
         $("#listCart").load(urlBase+'shopping/viewcart','#listCart');
     });
 }
+
+function getDistrict(id){
+    $.get(urlBase+'district/getdistrict', {'id': id}, function (data) {
+        $('#district').html(data);
+
+    });
+}

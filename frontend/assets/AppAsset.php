@@ -48,7 +48,6 @@ class AppAsset extends AssetBundle
         'common/js/chart-custom.js',
         'common/js/custom.js',
         'common/js/common.js',
-
     ];
     public $depends = [
         'yii\web\YiiAsset',

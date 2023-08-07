@@ -5,6 +5,7 @@ use frontend\models\Product;
 use frontend\common\cart;
 use Yii;
 use yii\web\Session;
+use frontend\models\Province;
 
 class ShoppingController extends \yii\web\Controller
 {
@@ -64,6 +65,9 @@ class ShoppingController extends \yii\web\Controller
     public function actionViewcart(){
         $this->layout='cartlayout';
         $session = Yii::$app->session;
-        return $this->render('viewCart', ['cart'=>$session['cart']]);
+        $province = new Province();
+        $province = $province->getAllProvince();
+
+        return $this->render('viewCart', ['cart'=>$session['cart'], 'province'=>$province]);
     }
 }

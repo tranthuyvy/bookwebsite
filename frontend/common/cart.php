@@ -13,7 +13,7 @@
             if (!isset($session['cart'])) {
                 $cart[$id] = [
                     "product_name" => $arrData["product_name"],
-                    "product_price" => $arrData["product_price"],
+                    'product_price' => $arrData['product_price'],
                     "product_image" => $arrData["product_image"],
                     'amount' => 1
                 ];
@@ -22,14 +22,14 @@
                 if (array_key_exists($id, $cart)) {
                     $cart[$id] = [
                         "product_name" => $arrData["product_name"],
-                        "product_price" => $arrData["product_price"],
+                        'product_price' => $arrData['product_price'],
                         "product_image" => $arrData["product_image"],
                         'amount' => $cart[$id]["amount"] + 1
                     ];
                 } else {
                     $cart[$id] = [
                         "product_name" => $arrData["product_name"],
-                        "product_price" => $arrData["product_price"],
+                        'product_price' => $arrData['product_price'],
                         "product_image" => $arrData["product_image"],
                         'amount' => 1
                     ];
@@ -55,7 +55,7 @@
             if (array_key_exists($id, $cart)) {
                 $cart[$id] = [
                     "product_name" => $cart[$id]["product_name"],
-                    "product_price" => $cart[$id]["product_price"],
+                    'product_price' => $cart[$id]['product_price'],
                     "product_image" => $cart[$id]["product_image"],
                     'amount' => $amount
                 ];

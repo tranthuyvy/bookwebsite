@@ -49,18 +49,26 @@
                                                     <div class="col-sm-10">
                                                         <div class="row align-items-center mt-2">
                                                             <div class="col-sm-7 col-md-6">
-                                                                <button type="button" class="fa fa-minus qty-btn"
-                                                                        id="btn-minus">
-                                                                </button>
+<!--                                                                <button type="button"-->
+<!--                                                                        class="fa fa-minus qty-btn"-->
+<!--                                                                        id="btn-minus">-->
+<!--                                                                </button>-->
 
-                                                                <input style="width:40px; height: 30px; padding: 12px " type="text"
-                                                                       id="amount_<?php echo $key ?>"
-                                                                       name="amount_<?php echo $key ?>"
-                                                                       value="<?php echo $value['amount']?>">
+                                                                <input style="width:50px; height: 40px; margin-left: 20px" type="number"
+                                                                        oninput="updateCart(<?php echo $key?>)"
+                                                                        id="amount_<?php echo $key ?>"
+                                                                        name="amount_<?php echo $key ?>"
+                                                                        value="<?php echo $value['amount'] ?>">
 
-                                                                <button type="button" class="fa fa-plus qty-btn"
-                                                                        id="btn-plus">
-                                                                </button>
+<!--                                                                <input style="width:40px; height: 30px; padding: 12px " type="text"-->
+<!--                                                                       id="amount_--><?php //echo $key ?><!--"-->
+<!--                                                                       name="amount_--><?php //echo $key ?><!--"-->
+<!--                                                                       value="--><?php //echo $value['amount']?><!--">-->
+
+<!--                                                                <button type="button"-->
+<!--                                                                        class="fa fa-plus qty-btn"-->
+<!--                                                                        id="btn-plus">-->
+<!--                                                                </button>-->
                                                             </div>
                                                             <div class="col-sm-5 col-md-6">
                                                                 <span class="product-price">
@@ -76,11 +84,6 @@
                                                     <div class="col-sm-2">
                                                         <a href="javascript:void(0);" onclick="deleteCart(<?php echo $key?>)" class="text-dark font-size-20">
                                                             <i class="ri-delete-bin-7-fill"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-sm-2">
-                                                        <a href="javascript:void(0);" onclick="updateCart(<?php echo $key?>)" class="text-dark font-size-20">
-                                                            <i class="ri-edit-2-line"></i>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -102,7 +105,7 @@
                                     <span>Tổng chưa thuế</span>
                                     <span>
                                         <strong>
-                                            <?php echo number_format($total * (92/100), 0, ',', '.'); ?>Đ
+                                            <?php echo number_format($total * (95/100), 0, ',', '.'); ?>Đ
                                         </strong>
                                     </span>
                                 </div>
@@ -110,7 +113,7 @@
                                     <span>Thuế VAT 8%</span>
                                     <span>
                                         <strong>
-                                            <?php echo number_format($total * (8/100), 0, ',', '.'); ?>Đ
+                                            <?php echo number_format($total * (5/100), 0, ',', '.'); ?>Đ
                                         </strong>
                                     </span>
                                 </div>
@@ -135,11 +138,15 @@
                         </div>
 
                         <form action="" method="post">
-                            <div class="iq-card" style="height: 360px">
+                            <div class="iq-card" style="height: 865px; padding: 10px">
                                 <div class="card-body iq-card-body p-0 iq-checkout-policy">
                                     <div class="col-md-12 col-sm-12 estimate-ship-tax">
-                                        <span class="estimate-title">Thông Tin Mua Hàng</span>
-                                        <p>Nhập đầy đủ thông tin</p>
+                                        <span class="estimate-title" style="margin-left: 35%">
+                                            <strong style="font-size: 18px">
+                                                Order Information
+                                            </strong>
+                                        </span>
+                                        <p></p>
                                         <div class="form-group">
                                             <label class="info-title control-label">Name</label>
                                             <input type="text"
@@ -148,37 +155,28 @@
                                                    id="user_name"
                                                    placeholder="Input your name">
                                         </div>
-                                        <div class="form-group">
-                                            <label class="info-title control-label">Name</label>
-                                            <input type="text"
-                                                   class="form-control unicase-form-control text-input"
-                                                   name="user_name"
-                                                   id="user_name"
-                                                   placeholder="Input your name">
-                                        </div>
-
 
                                         <div class="form-group">
                                             <label class="info-title control-label">Province <span>*</span></label>
-                                            <select class="form-control unicase-form-control">
-                                                <option>--Select options--</option>
-                                                <option>India</option>
-                                                <option>SriLanka</option>
-                                                <option>united kingdom</option>
-                                                <option>saudi arabia</option>
-                                                <option>united arab emirates</option>
+                                            <select class="form-control unicase-form-control"
+                                                    id="province" name="province"
+                                                    onchange="getDistrict(this.value)">
+                                                <?php
+                                                    foreach ($province as $key=>$value){
+                                                        echo '<option value="'.$value["province_id"].'">'.$value["province_name"].'</option>';
+                                                    }
+                                                ?>
+
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label class="info-title control-label">District
                                                 <span>*</span></label>
-                                            <select class="form-control unicase-form-control">
+                                            <select class="form-control unicase-form-control"
+                                                    id="district" name="district">
                                                 <option>--Select options--</option>
-                                                <option>TamilNadu</option>
-                                                <option>Kerala</option>
-                                                <option>Andhra Pradesh</option>
-                                                <option>Karnataka</option>
-                                                <option>Madhya Pradesh</option>
+
+
                                             </select>
                                         </div>
                                         <div class="form-group">
@@ -219,7 +217,7 @@
                                                    placeholder="Input email">
                                         </div>
                                         <div class="pull-right">
-                                            <button type="submit" class="btn-upper btn btn-primary">GET A QOUTE</button>
+
                                         </div>
                                     </div>
                                 </div>
