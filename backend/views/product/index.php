@@ -1,6 +1,9 @@
 <?php
 
 use backend\models\Product;
+use backend\models\Group;
+use backend\models\Author;
+use backend\models\Supplier;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
@@ -29,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'product_id',
+//            'product_id',
             'product_name',
 //            'product_image',
             [
@@ -39,15 +42,45 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Html::img($data->product_image, ['alt' => 'yii', 'width' => '100']);
                 }
             ],
-            'product_price',
+
+//            'product_price',
+            [
+                'attribute' => 'product_price',
+                'value' => function ($data) {
+                    return number_format($data->product_price, 0, ',', '.') . 'Đ';
+                },
+            ],
             'product_description:ntext',
-            //'group_id',
-            //'supplier_id',
-            //'author_id',
+//            'group_id',
+            [
+                'attribute' => 'group_id', 'value' => function ($data) {
+                $group_name = Group::getGroupByName($data->group_id);
+                return $group_name;}
+            ],
+//            'supplier_id',
+            [
+                'attribute' => 'supplier_id', 'value' => function ($data) {
+                $supplier_name = Supplier::getSupplierByName($data->supplier_id);
+                return $supplier_name;}
+            ],
+//            'author_id',
+            [
+                'attribute' => 'author_id', 'value' => function ($data) {
+                $author_name = Author::getAuthorByName($data->author_id);
+                return $author_name;}
+            ],
             //'status',
             //'user_id',
-            //'created_at',
+//            'created_at',
+            [
+                'attribute' => 'created_at',
+                'format' => ['date', 'php:d/m/Y'],
+            ],
             //'updated_at',
+            [
+                'attribute' => 'updated_at',
+                'format' => ['date', 'php:d/m/Y'],
+            ],
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Product $model, $key, $index, $column) {

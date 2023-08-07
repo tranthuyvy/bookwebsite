@@ -56,4 +56,13 @@ class Author extends \yii\db\ActiveRecord
             ->all();
         return $data;
     }
+
+    function getAuthorByName($author_id)
+    {
+        $data = Author::find()
+            ->asArray()
+            ->where('author_id=:author_id',['author_id'=>$author_id])
+            ->one();
+        return $data["author_name"];
+    }
 }

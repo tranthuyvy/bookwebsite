@@ -18,7 +18,7 @@ use yii\widgets\ActiveForm;
 
     <img src="" id="previewImage" alt="" width="200px" >
 
-    <?= $form->field($model, 'product_price')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'product_price')->textInput(['type' => 'number', 'step' => 'any'])?>
 
     <?= $form->field($model, 'product_description')->textarea(['row' => 6, "id" => 'product_description']) ?>
 

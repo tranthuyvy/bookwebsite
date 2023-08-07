@@ -56,4 +56,13 @@ class Group extends \yii\db\ActiveRecord
             ->all();
         return $data;
     }
+
+    function getGroupByName($group_id)
+    {
+        $data = Group::find()
+            ->asArray()
+            ->where('group_id=:group_id',['group_id'=>$group_id])
+            ->one();
+        return $data["group_name"];
+    }
 }

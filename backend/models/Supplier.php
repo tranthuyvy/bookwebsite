@@ -60,4 +60,13 @@ class Supplier extends \yii\db\ActiveRecord
             ->all();
         return $data;
     }
+
+    function getSupplierByName($supplier_id)
+    {
+        $data = Supplier::find()
+            ->asArray()
+            ->where('supplier_id=:supplier_id',['supplier_id'=>$supplier_id])
+            ->one();
+        return $data["supplier_name"];
+    }
 }
