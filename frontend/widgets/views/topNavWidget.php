@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="navbar-breadcrumb">
-                <h5 class="mb-0">Trang Chủ</h5>
+                <h5 class="mb-0"></h5>
             </div>
             <div class="iq-search-bar">
                 <form action="#" class="searchbox">

@@ -1,3 +1,7 @@
+<?php
+    use frontend\widgets\topNavWidget;
+?>
+<?= topNavWidget::widget() ?>
 <div id="content-page" class="content-page">
     <div class="container-fluid checkout-content">
         <div class="row">
@@ -13,6 +17,7 @@
                             <div class="iq-card-body" id="listCart">
                                 <ul class="list-inline p-0 m-0">
                                     <?php
+                                        $total = 0;
                                         foreach ($cart as $key => $value){
                                     ?>
 
@@ -60,7 +65,9 @@
                                                             <div class="col-sm-5 col-md-6">
                                                                 <span class="product-price">
                                                                     <h5 style="color: red">
-                                                                        <?php echo number_format($value['product_price'] * $value['amount'], 0, ',', '.'); ?>Đ
+                                                                        <?php echo number_format($value['product_price'] * $value['amount'], 0, ',', '.');
+                                                                        $total += $value['product_price'] * $value['amount'];
+                                                                        ?>Đ
                                                                     </h5>
                                                                 </span>
                                                             </div>
@@ -85,27 +92,27 @@
                             </div>
                         </div>
                     </div>
+
+
                     <div class="col-lg-4">
                         <div class="iq-card">
                             <div class="iq-card-body">
-                                <p>Tùy chọn</p>
-                                <div class="d-flex justify-content-between">
-                                    <span>Phiếu giảm giá</span>
-                                    <span><a href="#"><strong>Áp dụng</strong></a></span>
-                                </div>
-                                <hr>
-                                <p><b>Chi tiết</b></p>
+                                <p><b>Chi tiết hóa đơn</b></p>
                                 <div class="d-flex justify-content-between mb-1">
-                                    <span>Tổng</span>
-                                    <span>339.900đ</span>
+                                    <span>Tổng chưa thuế</span>
+                                    <span>
+                                        <strong>
+                                            <?php echo number_format($total * (92/100), 0, ',', '.'); ?>Đ
+                                        </strong>
+                                    </span>
                                 </div>
                                 <div class="d-flex justify-content-between mb-1">
-                                    <span>Giảm giá</span>
-                                    <span class="text-success">19.900đ</span>
-                                </div>
-                                <div class="d-flex justify-content-between mb-1">
-                                    <span>Thuế VAT</span>
-                                    <span>16.900đ</span>
+                                    <span>Thuế VAT 8%</span>
+                                    <span>
+                                        <strong>
+                                            <?php echo number_format($total * (8/100), 0, ',', '.'); ?>Đ
+                                        </strong>
+                                    </span>
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <span>Phí vận chuyển</span>
@@ -113,13 +120,21 @@
                                 </div>
                                 <hr>
                                 <div class="d-flex justify-content-between">
-                                    <span class="text-dark"><strong>Tổng</strong></span>
-                                    <span class="text-dark"><strong>327.900đ</strong></span>
+                                    <span class="text-dark">
+                                        <strong>Tổng</strong>
+                                    </span>
+                                    <span class="text-dark" >
+                                        <strong style="color: red">
+                                            <?php echo number_format($total, 0, ',', '.'); ?>Đ
+                                        </strong>
+                                    </span>
                                 </div>
                                 <a id="place-order" href="javascript:void();" class="btn btn-primary d-block mt-3 next">Đặt
                                     hàng</a>
                             </div>
                         </div>
+
+
                         <div class="iq-card ">
                             <div class="card-body iq-card-body p-0 iq-checkout-policy">
                                 <ul class="p-0 m-0">
