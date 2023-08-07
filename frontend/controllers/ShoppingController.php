@@ -45,4 +45,10 @@ class ShoppingController extends \yii\web\Controller
         }
         return $this->renderAjax('cart',['cartInfo'=>$totalAmount."-".$total]);
     }
+
+    public function actionViewcart(){
+        $this->layout='cartlayout';
+        $session = Yii::$app->session;
+        return $this->render('viewCart', ['cart'=>$session['cart']]);
+    }
 }

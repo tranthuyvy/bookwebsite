@@ -50,7 +50,7 @@ foreach ($infoCart as $key => $value) {
                     </div>
                 </div>
                 <div class="d-flex align-items-center text-center p-3">
-                    <a class="btn btn-primary mr-2 iq-sign-btn" href="checkout.html"
+                    <a class="btn btn-primary mr-2 iq-sign-btn" href="<?= Yii::$app->homeUrl.'shopping/viewcart'?>"
                        role="button">Giỏ Hàng</a>
                     <a class="btn btn-primary iq-sign-btn" href="checkout.html"
                        role="button">Thanh Toán</a>
