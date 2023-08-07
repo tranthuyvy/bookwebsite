@@ -31,7 +31,14 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'product_id',
             'product_name',
-            'product_image',
+//            'product_image',
+            [
+                'attribute' => 'product_image',
+                'format' => 'html',
+                'content' => function ($data) {
+                    return Html::img($data->product_image, ['alt' => 'yii', 'width' => '100']);
+                }
+            ],
             'product_price',
             'product_description:ntext',
             //'group_id',

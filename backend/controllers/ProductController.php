@@ -99,7 +99,7 @@ class ProductController extends Controller
         if ($this->request->isPost) {
             if ($model->load(Yii::$app->request->post())) {
                 $link = $urlImg["Product"]["product_image"];
-                $link = str_replace("http://localhost/bookwebsite/","", $link);
+                $link = str_replace("","", $link);
                 $model->product_image = $link;
                 if ($model->save())
                     return $this->redirect(['view', 'product_id' => $model->product_id]);
