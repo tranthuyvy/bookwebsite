@@ -63,6 +63,15 @@ AppAsset::register($this);
                 $("#total").text(val[1]);
             });
         }
+
+        function deleteCart(id){
+            $.get('<?php echo Yii::$app->homeUrl . 'shopping/deletecart' ?>', {'id': id}, function (data) {
+                val = data.split("-");
+                $("#amount").text(val[0]);
+                $("#total").text(val[1]);
+                $("#item_"+id).remove();
+            });
+        }
     </script>
     </body>
     </html>

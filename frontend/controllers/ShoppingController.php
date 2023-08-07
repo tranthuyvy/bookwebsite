@@ -29,8 +29,20 @@ class ShoppingController extends \yii\web\Controller
             $totalAmount += $value['amount'];
             $total += $value['product_price']*$value['amount'];
         }
-
          return $this->renderAjax('cart',['cartInfo'=>$totalAmount."-".$total]);
     }
 
+    public function actionDeletecart($id){
+        $cart = new cart();
+        $cart->deleteItemCart($id);
+        $session = Yii::$app->session;
+        $infoCart = $session['cart'];
+
+        $totalAmount = $total = 0;
+        foreach ($infoCart as $key => $value) {
+            $totalAmount += $value['amount'];
+            $total += $value['product_price']*$value['amount'];
+        }
+        return $this->renderAjax('cart',['cartInfo'=>$totalAmount."-".$total]);
+    }
 }

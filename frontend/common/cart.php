@@ -35,7 +35,15 @@
                 }
             }
             $session['cart'] = $cart;
+        }
 
+        public function deleteItemCart($id){
+            $session = Yii::$app->session;
+            if (isset($session['cart'])){
+                $cart = $session['cart'];
+                unset($cart[$id]);
+                $session['cart'] = $cart;
+            }
         }
     }
 ?>
