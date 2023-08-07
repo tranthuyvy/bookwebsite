@@ -19,7 +19,8 @@ class AppAsset extends AssetBundle
         'vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css',
         'vendors/jqvmap/dist/jqvmap.min.css',
         'vendors/bootstrap-daterangepicker/daterangepicker.css',
-        'build/css/custom.min.css'
+        'build/css/custom.min.css',
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'
     ];
     public $js = [
         'vendors/jquery/dist/jquery.min.js',

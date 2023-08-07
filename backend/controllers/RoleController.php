@@ -94,6 +94,7 @@ class RoleController extends Controller
     public function actionUpdate($role_id)
     {
         $model = $this->findModel($role_id);
+        $model->updated_at = time();
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
             return $this->redirect(['view', 'role_id' => $model->role_id]);

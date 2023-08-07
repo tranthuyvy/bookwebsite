@@ -74,7 +74,7 @@ class GroupController extends Controller
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect('');
+                return $this->redirect(['view', 'group_id' => $model->group_id]);
             }
         } else {
             $model->loadDefaultValues();

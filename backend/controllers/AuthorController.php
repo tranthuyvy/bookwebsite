@@ -74,7 +74,7 @@ class AuthorController extends Controller
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect('');
+                return $this->redirect(['view', 'author_id' => $model->author_id]);
             }
         } else {
             $model->loadDefaultValues();

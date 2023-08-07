@@ -68,13 +68,13 @@ class PaymentController extends Controller
     public function actionCreate()
     {
         $model = new Payment();
-        $time = time();
-        $model->created_at = $time;
-        $model->updated_at = $time;
+
+        $model->created_at = time();
+        $model->updated_at = time();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect('');
+                return $this->redirect(['view', 'payment_id' => $model->payment_id]);
             }
         } else {
             $model->loadDefaultValues();
@@ -94,6 +94,8 @@ class PaymentController extends Controller
     public function actionUpdate($payment_id)
     {
         $model = $this->findModel($payment_id);
+
+        $model->updated_at = time();
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
             return $this->redirect(['view', 'payment_id' => $model->payment_id]);
