@@ -7,9 +7,7 @@
             <div class="iq-header-title">
                 <h4 class="card-title mb-0">Suggestion For You</h4>
             </div>
-            <div class="iq-card-header-toolbar d-flex align-items-center">
-                <a href="category.html" class="btn btn-sm btn-primary view-more">Xem thêm</a>
-            </div>
+
         </div>
 
         <div class="iq-card-body favorites-contens">
@@ -27,6 +25,11 @@
                                      style="object-fit: cover; height: 280px; width: 220px"
                                      alt="">
                             </a>
+                            <div class="view-book">
+                                <a href="<?= Yii::$app->homeUrl?>product/detail?id=<?php echo $product["product_id"] ?>"
+                                   class="btn btn-sm btn-white">
+                                </a>
+                            </div>
                         </div>
 
                         <div class="col-7">

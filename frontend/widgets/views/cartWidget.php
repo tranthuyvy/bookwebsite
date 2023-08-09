@@ -27,12 +27,18 @@ if (is_array($infoCart)) {
                     <div class="media align-items-center">
                         <div class="">
                             <img class="rounded"
-                                 src="<?= Yii::$app->homeUrl.$value['product_image'] ?>"
+                                 src="<?php echo $value['product_image']; ?>"
                                  alt="<?php echo $value['product_name']?>">
                         </div>
                         <div class="media-body ml-3">
-                            <h6 class="mb-0 "><?php echo $value['product_name']?></h6>
-                            <p class="mb-0"><?php echo number_format($value['product_price'], 0, ',', '.'); ?>Đ</p>
+                            <h6 class="mb-0 " style="color: #0dd6b8">
+                                <?php echo $value['product_name']?>
+                            </h6>
+                            <p class="mb-0">
+                                <b style="color: black">
+                                    <?php echo number_format($value['product_price'], 0, ',', '.'); ?>Đ
+                                </b>
+                            </p>
                         </div>
                         <div class="float-right font-size-18 text-dark" onclick="deleteCart(<?= $key ?>)">
                             <i class="fa fa-trash"></i></div>
