@@ -1,6 +1,6 @@
 <?php
 
-use frontend\models\Product;
+use frontend\models\Wishlist;
 
 ?>
 <div id="content-page" class="content-page">
@@ -14,7 +14,9 @@ use frontend\models\Product;
 
             <div class="iq-card-body">
                 <div class="row">
-                    <?php foreach ($data as $key => $value) { ?>
+                    <?php foreach ($wishlistItems as $wishlistItem) {
+                        $product = $wishlistItem['product']
+                        ?>
                         <div class="col-sm-6 col-md-4 col-lg-3">
                             <div class="iq-card iq-card-block iq-card-stretch iq-card-height browse-bookcontent">
                                 <div class="iq-card-body p-0">
@@ -22,20 +24,20 @@ use frontend\models\Product;
                                         <div class="col-6 p-0 position-relative image-overlap-shadow">
                                             <a href="javascript:void();">
                                                 <img class="img-fluid rounded w-100"
-                                                     src="<?php echo $value['product_image']; ?>"
+                                                     src="<?php echo $product['product_image']; ?>"
                                                      style="object-fit: cover; height: 280px; width: 220px"
                                                      alt="$value['product_name']">
                                             </a>
                                             <div class="view-book">
-                                                <a href="<?= Yii::$app->homeUrl?>product/detail?id=<?php echo $value["product_id"] ?>" class="btn btn-sm btn-white">
-<!--                                                    --><?php //= Yii::$app->homeUrl.'product/detail/'.$value['product_id'] ?>
+                                                <a href="<?= Yii::$app->homeUrl?>product/detail?id=<?php echo $product["product_id"] ?>" class="btn btn-sm btn-white">
+                                                    <!--                                                    --><?php //= Yii::$app->homeUrl.'product/detail/'.$value['product_id'] ?>
                                                     Xem
                                                 </a>
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="mb-2">
-                                                <h6 class="mb-1"><?php echo $value['product_name']; ?></h6>
+                                                <h6 class="mb-1"><?php echo $product['product_name']; ?></h6>
                                                 <!--                                <p class="font-size-13 line-height mb-1">-->
                                                 <?php //echo $product['author_name']; ?><!--</p>-->
                                                 <!--                                <div class="d-block line-height">-->
@@ -52,15 +54,15 @@ use frontend\models\Product;
                                             </div>
                                             <div class="price d-flex align-items-center">
                                                 <h6 style="color: red">
-                                                    <b><?php echo number_format($value['product_price'], 0, ',', '.'); ?>
+                                                    <b><?php echo number_format($product['product_price'], 0, ',', '.'); ?>
                                                         Đ</b></h6>
                                             </div>
 
-                                            <button class="btn btn-outline-primary" type="button" onclick="addCart(<?= $value['product_id']; ?>)">
+                                            <button class="btn btn-outline-primary" type="button" onclick="addCart(<?= $product['product_id']; ?>)">
                                                 <i class="ri-shopping-cart-2-fill text-primary"></i>
                                             </button>
 
-                                            <button class="btn btn-outline-danger" type="button" onclick="addWishlist(<?= $value['product_id']; ?>)">
+                                            <button class="btn btn-outline-danger" type="button" onclick="addWishlist(<?= $product['product_id']; ?>)">
                                                 <i class="ri-heart-fill text-danger"></i>
                                             </button>
                                         </div>

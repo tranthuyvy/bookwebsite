@@ -45,4 +45,8 @@ class Wishlist extends \yii\db\ActiveRecord
             'created_at' => 'Created At',
         ];
     }
+    public function getProduct()
+    {
+        return $this->hasOne(Product::class, ['product_id' => 'product_id'])->asArray();
+    }
 }

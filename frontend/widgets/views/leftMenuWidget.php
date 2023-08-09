@@ -2,6 +2,7 @@
     use frontend\models\Group;
     use frontend\models\Author;
     use frontend\models\Supplier;
+    use frontend\models\Wishlist;
     use yii\bootstrap5\Nav;
     use yii\bootstrap5\NavBar;
 ?>
@@ -83,7 +84,7 @@
                 </li>
 
                 <li>
-                    <a href="sign-in.html"><i class="ri-book-line"></i>Sản Phẩm Yêu Thích</a>
+                    <a href="<?= Yii::$app->homeUrl?>wishlist/wishlist"><i class="ri-book-line"></i>Sản Phẩm Yêu Thích</a>
                 </li>
             </ul>
         </nav>

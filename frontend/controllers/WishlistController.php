@@ -46,4 +46,17 @@ class WishlistController extends Controller
         }
     }
 
+    public function actionWishlist()
+    {
+
+        $wishlistItems = Wishlist::find()
+            ->select('product_id')
+            ->with('product')
+            ->where(['user_id' => Yii::$app->user->id])
+            ->groupBy('product_id')
+            ->asArray()
+            ->all();
+
+        return $this->render('wishlist', ['wishlistItems' => $wishlistItems]);
+    }
 }
