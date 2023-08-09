@@ -27,7 +27,7 @@
                                              <span class="checkout-product-img">
                                              <a href="javascript:void();">
                                                  <img class="img-fluid rounded"
-                                                      src="<?= Yii::$app->homeUrl.$value['product_image'] ?>"
+                                                      src="<?php echo $value['product_image'] ?>"
                                                       style="object-fit: cover; height: 90px; width: 150px; margin-left: 30px"
                                                       alt="<?= $value["product_name"]?>">
                                              </a>
