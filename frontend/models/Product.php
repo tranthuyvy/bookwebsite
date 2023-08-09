@@ -3,6 +3,7 @@
 namespace frontend\models;
 use frontend\models\Author;
 use Yii;
+use yii\data\Pagination;
 use yii\db\Expression;
 
 /**
@@ -114,14 +115,6 @@ class Product extends \yii\db\ActiveRecord
         return $dataSuggestion;
     }
 
-    public function getProductByGroupId($id){
-        $data = Product::find()
-            ->asArray()
-            ->where('group_id=:group_id', ['group_id'=>$id])
-            ->all();
-        return $data;
-    }
-
     public function getProductByAuthorId($id){
         $data_author = Product::find()
             ->asArray()
@@ -165,6 +158,28 @@ class Product extends \yii\db\ActiveRecord
             $product['author_name'] = Product::getAuthorName($product['author_id']);
         }
         return $relatedProducts;
+    }
+
+    public function getProductByGroupId($group_id){
+        $page = $this->getPageProduct($group_id);
+        $data = Product::find()
+            ->asArray()
+            ->where('group_id=:group_id', ['group_id'=>$group_id])
+            ->offset($page->offset)
+            ->limit($page->limit)
+            ->all();
+        return $data;
+    }
+
+    function getPageProduct($group_id)
+    {
+        $data = Product::find()
+            ->asArray()
+            ->where('group_id=:group_id',['group_id'=>$group_id])
+            ->all();
+        $pages = new Pagination(['totalCount'=> count($data), 'pageSize'=>'3']);
+        return $pages;
+
     }
 
 }

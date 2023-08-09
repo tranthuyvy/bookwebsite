@@ -12,10 +12,12 @@ class ProductController extends \yii\web\Controller
     }
 
     public function actionListproduct($id){
-        $data = new Product();
+        $data = $page = new Product();
         $data = $data->getProductByGroupId($id);
+        $page = $page->getPageProduct($id);
         return $this->render('listProduct', [
-            "data" => $data,
+            'data' => $data,
+            'page' => $page
         ]);
     }
 
