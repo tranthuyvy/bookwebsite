@@ -1,7 +1,7 @@
 <?php
 
 namespace frontend\models;
-
+use frontend\models\Author;
 use Yii;
 use yii\db\Expression;
 
@@ -155,14 +155,16 @@ class Product extends \yii\db\ActiveRecord
 
     public static function getRelatedProduct($group_id, $product_id, $limit = 5)
     {
-        $data_related = Product::find()
+        $relatedProducts = Product::find()
             ->where(['group_id' => $group_id])
             ->andWhere(['not', ['product_id' => $product_id]])
             ->limit($limit)
             ->asArray()
             ->all();
-
-        return $data_related;
+        foreach ($relatedProducts as &$product) {
+            $product['author_name'] = Product::getAuthorName($product['author_id']);
+        }
+        return $relatedProducts;
     }
 
 }

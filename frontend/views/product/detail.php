@@ -138,20 +138,16 @@ use frontend\models\Product;
                                         </span>
                                     </div>
                                     <div class="mb-4 d-flex align-items-center">
-                                        <a href="checkout.html"
-                                           class="btn btn-primary view-more mr-2" style="color: ">
+                                        <a href="javascript:void(0);"
+                                           class="btn btn-outline-primary view-more mr-2"
+                                           onclick="addCart(<?= $data_detail['product_id']; ?>)">
                                             Thêm vào giỏ hàng
                                         </a>
-<!--                                        <a href="book-pdf.html" class="btn btn-primary view-more mr-2">Mua ngay</a>-->
-                                    </div>
-
-                                    <div class="mb-3">
                                         <a href="javascript:void(0);" class="text-body text-center">
-                                            <span class="avatar-30 rounded-circle bg-primary d-inline-block mr-2"
+                                            <span class="avatar-30 rounded-circle bg-danger d-inline-block mr-2"
                                                   onclick="addWishlist(<?= $data_detail['product_id']; ?>)">
                                                 <i class="ri-heart-fill"></i>
                                             </span>
-                                            <span>Add Wishlist</span>
                                         </a>
                                     </div>
                                 </div>
@@ -169,13 +165,10 @@ use frontend\models\Product;
                     <div class="iq-header-title">
                         <h4 class="card-title mb-0">Related Products</h4>
                     </div>
-<!--                    <div class="iq-card-header-toolbar d-flex align-items-center">-->
-<!--                        <a href="category.html" class="btn btn-sm btn-primary view-more">Xem thêm</a>-->
-<!--                    </div>-->
                 </div>
                 <div class="iq-card-body single-similar-contens">
                     <ul id="single-similar-slider" class="list-inline p-0 mb-0 row">
-                        <?php foreach ($related_product as $key=>$value) {
+                        <?php foreach ($relatedProducts as $key=>$value) {
 
                         ?>
                         <li class="col-md-12">
@@ -197,8 +190,12 @@ use frontend\models\Product;
                                 </div>
                                 <div class="col-7 pl-0">
                                     <h6 class="mb-2"><?php echo $value['product_name']; ?></h6>
-                                    <p class="text-body">Tác giả : <?php echo $author_name; ?></p>
-                                    <p style="color: red"><b><?php echo number_format($value['product_price'], 0, ',', '.'); ?> Đ</b></p>
+                                    <p class="text-body">Tác giả : <?= $value["author_name"]; ?></p>
+                                    <p style="color: red">
+                                        <b>
+                                            <?php echo number_format($value['product_price'], 0, ',', '.'); ?> Đ
+                                        </b>
+                                    </p>
                                 </div>
                             </div>
                         </li>
