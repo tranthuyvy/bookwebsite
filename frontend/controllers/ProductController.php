@@ -58,4 +58,12 @@ class ProductController extends \yii\web\Controller
             'related_product' => $related_product,
         ]);
     }
+
+    public function actionAllproduct(){
+        $data_all = new Product();
+        $data_all = $data_all->getAllProduct();
+        return $this->render('allproduct',[
+           'data_all' => $data_all,
+        ]);
+    }
 }

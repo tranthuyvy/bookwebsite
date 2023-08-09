@@ -62,8 +62,8 @@ use frontend\models\Product;
                                                 class="list-inline p-0 m-0  d-flex align-items-center">
                                                 <li>
                                                     <a href="javascript:void(0);">
-                                                        <img src="<?= Yii::$app->homeUrl.$data_detail['product_image'] ?>"
-                                                             class="img-fluid w-100 rounded" alt="<?= Yii::$app->homeUrl.$data_detail['product_image'] ?>">
+                                                        <img src="<?php echo $data_detail['product_image']; ?>"
+                                                             class="img-fluid w-100 rounded" alt="<?php echo $data_detail['product_image'] ?>">
                                                     </a>
                                                 </li>
 <!--                                                <li>-->
@@ -184,7 +184,7 @@ use frontend\models\Product;
                                     <div class="position-relative image-overlap-shadow">
                                         <a href="">
                                             <img class="img-fluid rounded w-100"
-                                                 src="<?= Yii::$app->homeUrl.$value['product_image'] ?>"
+                                                 src="<?php echo $value['product_image'] ?>"
                                                  style="object-fit: cover; height: 300px; width: 200px"
                                                  alt="">
                                         </a>

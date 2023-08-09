@@ -8,7 +8,7 @@ use frontend\models\Product;
         <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
             <div class="iq-card-header d-flex justify-content-between align-items-center position-relative">
                 <div class="iq-header-title">
-                    <h4 class="card-title mb-0">Product</h4>
+                    <h4 class="card-title mb-0">All Product</h4>
                 </div>
             </div>
 
@@ -28,7 +28,7 @@ use frontend\models\Product;
                                             </a>
                                             <div class="view-book">
                                                 <a href="<?= Yii::$app->homeUrl?>product/detail?id=<?php echo $value["product_id"] ?>" class="btn btn-sm btn-white">
-<!--                                                    --><?php //= Yii::$app->homeUrl.'product/detail/'.$value['product_id'] ?>
+                                                    <!--                                                    --><?php //= Yii::$app->homeUrl.'product/detail/'.$value['product_id'] ?>
                                                     Xem
                                                 </a>
                                             </div>

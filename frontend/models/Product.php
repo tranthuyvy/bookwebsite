@@ -66,6 +66,16 @@ class Product extends \yii\db\ActiveRecord
         ];
     }
 
+    public function getAllProduct($status =1){
+        $data_all = Product::find()
+            ->where(['status'=>$status])
+            ->orderBy(new Expression('RAND()'))
+            ->distinct()
+            ->asArray()
+            ->all();
+        return $data_all;
+    }
+
     public function getRandomProduct($limit = 12, $status = 1)
     {
         $data = Product::find()
