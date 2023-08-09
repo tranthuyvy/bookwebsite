@@ -17,6 +17,7 @@ class AppAsset extends AssetBundle
         'common/css/style.css',
         'common/css/responsive.css',
         'common/css/customPage.css',
+        'common/css/main.css',
         'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css',
 
     ];

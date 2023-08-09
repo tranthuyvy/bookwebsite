@@ -1,44 +1,45 @@
 <?php
-
-/** @var yii\web\View $this */
-/** @var yii\bootstrap5\ActiveForm $form */
-
-/** @var \common\models\LoginForm $model */
-
-use yii\bootstrap5\Html;
-use yii\bootstrap5\ActiveForm;
-
-$this->title = 'Login';
-$this->params['breadcrumbs'][] = $this->title;
+    use yii\bootstrap5\Html;
+    use yii\bootstrap5\ActiveForm;
 ?>
-<div id="content-page" class="content-page">
-    <div class="site-login">
-        <h1><?= Html::encode($this->title) ?></h1>
 
-        <p>Please fill out the following fields to login:</p>
-
+<section id="form"><!--form-->
+    <div class="container">
         <div class="row">
-            <div class="col-lg-5">
-                <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
-
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
-
-                <?= $form->field($model, 'password')->passwordInput() ?>
-
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
-
-                <div class="my-1 mx-0" style="color:#999;">
-                    If you forgot your password you can <?= Html::a('reset it', ['site/request-password-reset']) ?>.
-                    <br>
-                    Need new verification email? <?= Html::a('Resend', ['site/resend-verification-email']) ?>
-                </div>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-                </div>
-
-                <?php ActiveForm::end(); ?>
+            <div class="col-sm-4 col-sm-offset-1">
+                <div class="login-form"><!--login form-->
+                    <h2>Login to your account</h2>
+                    <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+                    <?= $form->field($model, 'username')->textInput(['autofocus' => true, 'placeholder' => 'Username']) ?>
+                    <?= $form->field($model, 'password')->passwordInput(['placeholder' => 'Password']) ?>
+                        <span>
+								<?= $form->field($model, 'rememberMe')->checkbox() ?>
+							</span>
+                    <div class="form-group">
+                        <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                    </div>
+                    <?php ActiveForm::end(); ?>
+                </div><!--/login form-->
+            </div>
+            <div class="col-sm-1">
+                <h2 class="or">OR</h2>
+            </div>
+            <div class="col-sm-4">
+                <div class="signup-form"><!--sign up form-->
+                    <h2>New User Signup!</h2>
+                    <?php $form = ActiveForm::begin([
+                            'id' => 'form-signup',
+                            'action' => Yii::$app->homeUrl.'site/signup'
+                    ]); ?>
+                        <?= $form->field($modelRegister, 'username')->textInput(['autofocus' => true, 'placeholder' => 'Username']) ?>
+                        <?= $form->field($modelRegister, 'email')->textInput(['placeholder' => 'Email']) ?>
+                        <?= $form->field($modelRegister, 'password')->passwordInput(['placeholder' => 'Password']) ?>
+                        <div class="form-group">
+                            <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+                        </div>
+                    <?php ActiveForm::end(); ?>
+                </div><!--/sign up form-->
             </div>
         </div>
     </div>
-</div>
+</section><!--/form-->

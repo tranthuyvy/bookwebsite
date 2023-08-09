@@ -1,5 +1,5 @@
 
-<footer class="iq-footer">
+<footer class="iq-footer" style="margin-top: 500px">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-9">

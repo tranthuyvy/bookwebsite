@@ -58,9 +58,10 @@
                     <li class="search-toggle iq-waves-effect text-gray rounded">
                         <?php }else {
                                 echo Html::beginForm(['/site/logout'],'post');
+
                                 echo Html::submitButton(
-                                        'Logout('.Yii::$app->user->identity->username.')',
-                                    ['class'=>'btn btn-link']
+                                        'Logout('.Yii::$app->user->identity->username.')', ['class'=>'btn btn-link']
+
                                 );
                                 echo Html::endForm();
                         }?>
@@ -69,7 +70,10 @@
                         <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center">
                             <img src="common/images/user/2.jpg" class="img-fluid rounded-circle mr-3" alt="user">
                             <div class="caption">
-                                <h6 class="mb-1 line-height">Vy Trần</h6>
+                                <?php
+                                    if (!Yii::$app->user->isGuest){
+                                ?>
+                                <h6 class="mb-1 line-height"><?php echo Yii::$app->user->identity->username?></h6>
                                 <p class="mb-0 text-primary">Tài Khoản</p>
                             </div>
                         </a>
@@ -77,7 +81,7 @@
                             <div class="iq-card shadow-none m-0">
                                 <div class="iq-card-body p-0 ">
                                     <div class="bg-primary p-3">
-                                        <h5 class="mb-0 text-white line-height">Xin Chào Vy Trần</h5>
+                                        <h5 class="mb-0 text-white line-height">Xin Chào <?php echo Yii::$app->user->identity->username?></h5>
                                     </div>
                                     <a href="profile-edit.html" class="iq-sub-card iq-bg-primary-hover">
                                         <div class="media align-items-center">
@@ -85,7 +89,7 @@
                                                 <i class="ri-file-user-line"></i>
                                             </div>
                                             <div class="media-body ml-3">
-                                                <h6 class="mb-0 ">Tài khoản của tôi</h6>
+                                                <h6 class="mb-0 ">Tài khoản</h6>
                                             </div>
                                         </div>
                                     </a>
@@ -96,7 +100,7 @@
                                                 <i class="ri-account-box-line"></i>
                                             </div>
                                             <div class="media-body ml-3">
-                                                <h6 class="mb-0 ">Đơn hàng của tôi</h6>
+                                                <h6 class="mb-0 ">Đơn hàng</h6>
                                             </div>
                                         </div>
                                     </a>
@@ -108,6 +112,7 @@
                             </div>
                         </div>
                     </li>
+                    <?php }?>
                 </ul>
             </div>
         </nav>
