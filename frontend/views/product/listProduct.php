@@ -22,7 +22,7 @@ use frontend\models\Product;
                                         <div class="col-6 p-0 position-relative image-overlap-shadow">
                                             <a href="javascript:void();">
                                                 <img class="img-fluid rounded w-100"
-                                                     src="<?= Yii::$app->homeUrl.$value['product_image'] ?>"
+                                                     src="<?php echo $value['product_image']; ?>"
                                                      style="object-fit: cover; height: 280px; width: 220px"
                                                      alt="$value['product_name']">
                                             </a>
