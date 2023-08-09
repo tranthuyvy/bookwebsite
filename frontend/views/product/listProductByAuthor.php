@@ -1,6 +1,7 @@
 <?php
 
 use frontend\models\Product;
+use yii\widgets\LinkPager;
 
 ?>
 <div id="content-page" class="content-page">
@@ -69,6 +70,17 @@ use frontend\models\Product;
                     <?php } ?>
                 </div>
             </div>
+            <?php
+            echo LinkPager::widget([
+                'pagination' => $page_author,
+                'options' => ['class' => 'pagination justify-content-center'],
+                'firstPageLabel' => '|<',
+                'lastPageLabel' => '|>',
+                'prevPageLabel' => '<',
+                'nextPageLabel' => '>',
+                'maxButtonCount' => 5
+            ]);
+            ?>
         </div>
     </div>
 </div>

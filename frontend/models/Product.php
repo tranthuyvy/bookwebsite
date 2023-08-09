@@ -68,11 +68,14 @@ class Product extends \yii\db\ActiveRecord
     }
 
     public function getAllProduct($status =1){
+        $page = $this->getPageAllProduct();
         $data_all = Product::find()
             ->where(['status'=>$status])
             ->orderBy(new Expression('RAND()'))
             ->distinct()
             ->asArray()
+            ->offset($page->offset)
+            ->limit($page->limit)
             ->all();
         return $data_all;
     }
@@ -116,17 +119,23 @@ class Product extends \yii\db\ActiveRecord
     }
 
     public function getProductByAuthorId($id){
+        $page = $this->getPageAuthorProduct($id);
         $data_author = Product::find()
             ->asArray()
             ->where('author_id=:author_id', ['author_id'=>$id])
+            ->offset($page->offset)
+            ->limit($page->limit)
             ->all();
         return $data_author;
     }
 
     public function getProductBySupplierId($id){
+        $page = $this->getPageSupplierProduct($id);
         $data_supplier = Product::find()
             ->asArray()
             ->where('supplier_id=:supplier_id', ['supplier_id'=>$id])
+            ->offset($page->offset)
+            ->limit($page->limit)
             ->all();
         return $data_supplier;
     }
@@ -161,7 +170,7 @@ class Product extends \yii\db\ActiveRecord
     }
 
     public function getProductByGroupId($group_id){
-        $page = $this->getPageProduct($group_id);
+        $page = $this->getPageGroupProduct($group_id);
         $data = Product::find()
             ->asArray()
             ->where('group_id=:group_id', ['group_id'=>$group_id])
@@ -171,7 +180,7 @@ class Product extends \yii\db\ActiveRecord
         return $data;
     }
 
-    function getPageProduct($group_id)
+    function getPageGroupProduct($group_id)
     {
         $data = Product::find()
             ->asArray()
@@ -179,7 +188,33 @@ class Product extends \yii\db\ActiveRecord
             ->all();
         $pages = new Pagination(['totalCount'=> count($data), 'pageSize'=>'3']);
         return $pages;
+    }
 
+    function getPageAuthorProduct($author_id)
+    {
+        $data_author = Product::find()
+            ->asArray()
+            ->where('author_id=:author_id',['author_id'=>$author_id])
+            ->all();
+        $page_author = new Pagination(['totalCount'=> count($data_author), 'pageSize'=>'1']);
+        return $page_author;
+    }
+    function getPageSupplierProduct($supplier_id)
+    {
+        $data_supplier = Product::find()
+            ->asArray()
+            ->where('supplier_id=:supplier_id',['supplier_id'=>$supplier_id])
+            ->all();
+        $page_supplier = new Pagination(['totalCount'=> count($data_supplier), 'pageSize'=>'3']);
+        return $page_supplier;
+    }
+    function getPageAllProduct()
+    {
+        $data_all = Product::find()
+            ->asArray()
+            ->all();
+        $page_all = new Pagination(['totalCount'=> count($data_all), 'pageSize'=>'8']);
+        return $page_all;
     }
 
 }

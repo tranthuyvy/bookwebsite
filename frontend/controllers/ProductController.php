@@ -12,9 +12,12 @@ class ProductController extends \yii\web\Controller
     }
 
     public function actionListproduct($id){
-        $data = $page = new Product();
+        $data = new Product();
         $data = $data->getProductByGroupId($id);
-        $page = $page->getPageProduct($id);
+
+        $page = new Product();
+        $page = $page->getPageGroupProduct($id);
+
         return $this->render('listProduct', [
             'data' => $data,
             'page' => $page
@@ -26,8 +29,12 @@ class ProductController extends \yii\web\Controller
         $data_author = new Product();
         $data_author = $data_author->getProductByAuthorId($id);
 
+        $page_author = new Product();
+        $page_author = $page_author->getPageAuthorProduct($id);
+
         return $this->render('listProductByAuthor', [
             "data_author" => $data_author,
+            'page_author' => $page_author
         ]);
     }
 
@@ -35,8 +42,12 @@ class ProductController extends \yii\web\Controller
         $data_supplier = new Product();
         $data_supplier = $data_supplier->getProductBySupplierId($id);
 
+        $page_supplier = new Product();
+        $page_supplier = $page_supplier->getPageSupplierProduct($id);
+
         return $this->render('listProductBySupplier', [
            "data_supplier" => $data_supplier,
+            'page_supplier' => $page_supplier
         ]);
     }
 
@@ -64,8 +75,13 @@ class ProductController extends \yii\web\Controller
     public function actionAllproduct(){
         $data_all = new Product();
         $data_all = $data_all->getAllProduct();
+
+        $page_all = new Product();
+        $page_all = $page_all->getPageAllProduct();
+
         return $this->render('allproduct',[
            'data_all' => $data_all,
+            'page_all' => $page_all,
         ]);
     }
 }
