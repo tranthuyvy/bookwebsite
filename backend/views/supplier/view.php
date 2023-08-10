@@ -33,9 +33,28 @@ $this->params['breadcrumbs'][] = $this->title;
             'supplier_name',
             'supplier_phone',
             'supplier_address',
-            'status',
-            'created_at',
-            'updated_at',
+//            'status',
+            [
+                'attribute' => 'status',
+                'format' => 'raw',
+                'value' => function ($data) {
+                    if ($data->status == 1) {
+                        return '<i class="fas fa-check-circle text-success"></i>';
+                    } else {
+                        return '<i class="fas fa-times-circle text-danger"></i>';
+                    }
+                },
+            ],
+//            'created_at',
+            [
+                'attribute' => 'created_at',
+                'format' => ['date', 'php:d/m/Y'],
+            ],
+            //'updated_at',
+            [
+                'attribute' => 'updated_at',
+                'format' => ['date', 'php:d/m/Y'],
+            ],
         ],
     ]) ?>
 

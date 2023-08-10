@@ -114,7 +114,10 @@ class SupplierController extends Controller
      */
     public function actionDelete($supplier_id)
     {
-        $this->findModel($supplier_id)->delete();
+        $supplier = $this->findModel($supplier_id);
+
+        $supplier->status = 0;
+        $supplier->save();
 
         return $this->redirect(['index']);
     }
