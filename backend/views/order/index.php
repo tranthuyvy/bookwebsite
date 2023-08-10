@@ -1,6 +1,7 @@
 <?php
 
 use backend\models\Order;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
@@ -34,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'user_name',
             'user_email:email',
             'user_mobile',
-            //'user_address',
+            'user_address',
 //            'totalMoney',
             [
                 'attribute' => 'totalMoney',
@@ -44,6 +45,13 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             //'payment_id',
             //'status',
+            [
+                'attribute' => 'status',
+                'format' => 'raw',
+                'value' => function ($model) use ($statuses) {
+                    return ArrayHelper::getValue($statuses, $model->status);
+                },
+            ],
             //'created_at',
             [
                 'attribute' => 'created_at',

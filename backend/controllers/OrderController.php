@@ -40,12 +40,21 @@ class OrderController extends Controller
      */
     public function actionIndex()
     {
+        $statuses = [
+            1 => 'Chờ Xác Nhận',
+            2 => 'Đã Xác Nhận',
+            3 => 'Đang Xử Lý',
+            4 => 'Đang Giao Hàng',
+            5 => 'Thành Công',
+            6 => 'Hủy Đơn Hàng'
+        ];
         $searchModel = new OrderSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'statuses' => $statuses,
         ]);
     }
 
@@ -130,7 +139,10 @@ class OrderController extends Controller
      */
     public function actionDelete($order_id)
     {
-        $this->findModel($order_id)->delete();
+        $order = $this->findModel($order_id);
+
+        $order->status = 6;
+        $order->save();
 
         return $this->redirect(['index']);
     }
