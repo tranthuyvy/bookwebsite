@@ -49,12 +49,12 @@ class Order extends \yii\db\ActiveRecord
         return [
             'order_id' => 'Order ID',
             'user_id' => 'User ID',
-            'user_name' => 'User Name',
-            'user_email' => 'User Email',
-            'user_mobile' => 'User Mobile',
-            'user_address' => 'User Address',
+            'user_name' => 'Người Nhận',
+            'user_email' => 'Email',
+            'user_mobile' => 'Số Điện Thoại',
+            'user_address' => 'Địa Chỉ Nhận Hàng',
             'totalMoney' => 'Total Money',
-            'payment_id' => 'Payment ID',
+            'payment_id' => 'Phương Thức Thanh Toán',
             'status' => 'Status',
             'created_at' => 'Created At',
         ];

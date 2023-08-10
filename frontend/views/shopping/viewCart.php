@@ -110,7 +110,7 @@
                                 <hr>
                                 <div class="d-flex justify-content-between">
                                     <span class="text-dark">
-                                        <strong>Tổng</strong>
+                                        <strong>Tổng (Đã bao gồm VAT)</strong>
                                     </span>
                                     <span class="text-dark" >
                                         <strong style="color: red">

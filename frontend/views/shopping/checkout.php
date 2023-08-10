@@ -15,7 +15,7 @@ use yii\widgets\ActiveForm;
                         <div class="iq-card">
                             <div class="iq-card-header d-flex justify-content-between iq-border-bottom mb-0">
                                 <div class="iq-header-title">
-                                    <h4 class="card-title">Giỏ hàng</h4>
+                                    <h4 class="card-title"></h4>
                                 </div>
                             </div>
                             <div class="iq-card-body" id="listCart">
@@ -149,7 +149,7 @@ use yii\widgets\ActiveForm;
                                         </span>
                                         <p></p>
                                         <div class="form-group">
-                                            <?= $form->field($model, 'user_name')->textInput(['autofocus' => true, 'placeholder' => 'Username']) ?>
+                                            <?= $form->field($model, 'user_name')->textInput(['autofocus' => true, 'placeholder' => 'Người nhận']) ?>
                                         </div>
                                         <div class="form-group">
 
