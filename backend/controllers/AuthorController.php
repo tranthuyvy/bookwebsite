@@ -114,7 +114,10 @@ class AuthorController extends Controller
      */
     public function actionDelete($author_id)
     {
-        $this->findModel($author_id)->delete();
+        $author = $this->findModel($author_id);
+
+        $author->status = 0;
+        $author->save();
 
         return $this->redirect(['index']);
     }
