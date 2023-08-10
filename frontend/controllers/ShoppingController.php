@@ -40,7 +40,8 @@ class ShoppingController extends \yii\web\Controller
             $totalAmount += $value['amount'];
             $total += $value['product_price']*$value['amount'];
         }
-         return $this->renderAjax('cart',['cartInfo'=>$totalAmount."-".$total]);
+        echo $totalAmount."-".$total;
+//         return $this->renderAjax('cart',['cartInfo'=>$totalAmount."-".$total]);
     }
 
     public function actionDeletecart($id){
@@ -54,13 +55,11 @@ class ShoppingController extends \yii\web\Controller
             $totalAmount += $value['amount'];
             $total += $value['product_price']*$value['amount'];
         }
-        return $this->renderPartial('cart',['cartInfo'=>$totalAmount."-".$total]);
+        echo $totalAmount."-".$total;
+        //return $this->renderPartial('cart',['cartInfo'=>$totalAmount."-".$total]);
     }
 
     public function actionUpdatecart($id,$amount){
-//        echo "<pre>";
-//        print_r($id, $amount);
-//        die;
         $session = Yii::$app->session;
         $amount = Yii::$app->getRequest()->getQueryParam('amount');
         $cart = new cart();
@@ -71,7 +70,8 @@ class ShoppingController extends \yii\web\Controller
             $totalAmount += $value['amount'];
             $total += $value['product_price']*$value['amount'];
         }
-        return $this->renderAjax('cart',['cartInfo'=>$totalAmount."-".$total]);
+        echo $totalAmount."-".$total;
+        //return $this->renderAjax('cart',['cartInfo'=>$totalAmount."-".$total]);//chỗ này có vấn đề làm load lại page
 
     }
 

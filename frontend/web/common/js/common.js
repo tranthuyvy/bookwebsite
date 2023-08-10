@@ -7,9 +7,10 @@ function addWishlist(id) {
 
 function addCart(id){
     $.get(urlBase+'shopping/addcart', {'id': id}, function (data) {
-        val = data.split("-");
-        $("#amount").text(val[0]);
-        $("#total").text(val[1]);
+        // val = data.split("-");
+        // $("#amount").text(val[0]);
+        // $("#total").text(val[1]);
+        // location.reload();
     });
 }
 
@@ -21,8 +22,8 @@ function deleteCart(id){
             $("#amount").text(val[0]);
             $("#total").text(val[1]);
             $("#item_"+id).remove();
-
-            $("#listAllCart").load(urlBase+'shopping/viewcart','#listAllCart');
+            location.reload();
+            //$("#listAllCart").load(urlBase+'shopping/viewcart','#listAllCart');
         });
     }
 }
@@ -34,9 +35,10 @@ function updateCart(id, amount){
         $("#amount").text(val[0]);
         $("#total").text(val[1]);
         $("#item_"+id).remove();
-
-        $("#listAllCart").load(urlBase+'shopping/viewcart',"#listAllCart");
+        // $("#listAllCart").load(urlBase+'shopping/viewcart',"#listAllCart");
+        location.reload();
     });
+
 }
 
 function getDistrict(id){
