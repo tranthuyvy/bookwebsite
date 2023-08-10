@@ -114,7 +114,10 @@ class RoleController extends Controller
      */
     public function actionDelete($role_id)
     {
-        $this->findModel($role_id)->delete();
+        $role = $this->findModel($role_id);
+
+        $role->status = 0;
+        $role->save();
 
         return $this->redirect(['index']);
     }

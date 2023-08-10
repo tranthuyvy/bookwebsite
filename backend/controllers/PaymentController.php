@@ -115,7 +115,10 @@ class PaymentController extends Controller
      */
     public function actionDelete($payment_id)
     {
-        $this->findModel($payment_id)->delete();
+        $payment = $this->findModel($payment_id);
+
+        $payment->status = 0;
+        $payment->save();
 
         return $this->redirect(['index']);
     }

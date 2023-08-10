@@ -1,5 +1,7 @@
 <?php
 
+use backend\models\Order;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
@@ -36,10 +38,21 @@ $this->params['breadcrumbs'][] = $this->title;
             'user_email:email',
             'user_mobile',
             'user_address',
-            'totalMoney',
+//            'totalMoney',
+            [
+                'attribute' => 'totalMoney',
+                'value' => function ($data) {
+                    return number_format($data->totalMoney, 0, ',', '.') . 'Đ';
+                },
+            ],
             'payment_id',
             'status',
-            'created_at',
+
+//            'created_at',
+            [
+                'attribute' => 'created_at',
+                'format' => ['date', 'php:d/m/Y'],
+            ],
         ],
     ]) ?>
 

@@ -95,6 +95,7 @@ class SupplierController extends Controller
     public function actionUpdate($supplier_id)
     {
         $model = $this->findModel($supplier_id);
+        $model->updated_at = time();
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
             return $this->redirect(['view', 'supplier_id' => $model->supplier_id]);
