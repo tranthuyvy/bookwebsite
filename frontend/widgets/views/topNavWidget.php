@@ -72,7 +72,16 @@
                                 <?php
                                     if (!Yii::$app->user->isGuest){
                                 ?>
-                                <h6 class="mb-1 line-height">Xin Chào <?php echo Yii::$app->user->identity->fullname?></h6>
+                                <h6 class="mb-1 line-height">Xin Chào
+                                    <?php
+                                        $user = Yii::$app->user->identity;
+                                        if (empty($user->fullname) || $user->fullname===null) {
+                                            echo $user->username;
+                                        }else{
+                                            echo $user->fullname;
+                                        }
+                                    ?>
+                                </h6>
 <!--                                <p class="mb-0 text-primary">Tài Khoản</p>-->
                             </div>
                         </a>
