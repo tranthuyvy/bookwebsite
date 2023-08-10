@@ -62,9 +62,6 @@ use frontend\models\Wishlist;
                                                 <i class="ri-shopping-cart-2-fill text-primary"></i>
                                             </button>
 
-                                            <button class="btn btn-outline-danger" type="button" onclick="addWishlist(<?= $product['product_id']; ?>)">
-                                                <i class="ri-heart-fill text-danger"></i>
-                                            </button>
                                         </div>
                                     </div>
                                 </div>

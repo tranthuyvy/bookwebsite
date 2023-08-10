@@ -86,6 +86,9 @@
                 <li>
                     <a href="<?= Yii::$app->homeUrl?>wishlist/wishlist"><i class="ri-book-line"></i>Sản Phẩm Yêu Thích</a>
                 </li>
+                <li>
+                    <a href="<?= Yii::$app->homeUrl?>order/history"><i class="ri-shopping-cart-2-fill"></i>Đơn Hàng</a>
+                </li>
             </ul>
         </nav>
     </div>

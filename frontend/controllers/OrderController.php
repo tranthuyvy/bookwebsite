@@ -3,7 +3,9 @@
 namespace frontend\controllers;
 
 use frontend\models\Order;
+use frontend\models\OrderDetail;
 use frontend\models\OrderSearch;
+use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -130,5 +132,28 @@ class OrderController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    public function actionHistory()
+    {
+        $user_id = Yii::$app->user->identity->id;
+
+        $orders = Order::find()
+            ->asArray()
+            ->where(['user_id' => $user_id])
+            ->all();
+
+        $orderIds = array_column($orders, 'order_id');
+
+        $orderDetails = OrderDetail::find()
+            ->asArray()
+            ->where(['order_id' => $orderIds])
+            ->all();
+
+        return $this->render('history', [
+            'orders' => $orders,
+            'orderDetails' => $orderDetails,
+            'getProductInfo' => 'getProductInfo',
+        ]);
     }
 }
