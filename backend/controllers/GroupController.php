@@ -114,7 +114,10 @@ class GroupController extends Controller
      */
     public function actionDelete($group_id)
     {
-        $this->findModel($group_id)->delete();
+        $group = $this->findModel($group_id);
+
+        $group->status = 0;
+        $group->save();
 
         return $this->redirect(['index']);
     }

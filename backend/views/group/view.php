@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /** @var yii\web\View $this */
 /** @var backend\models\Group $model */
 
-$this->title = $model->group_id;
+$this->title = $model->group_name;
 $this->params['breadcrumbs'][] = ['label' => 'Groups', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
@@ -31,9 +31,28 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'group_id',
             'group_name',
-            'status',
-            'created_at',
-            'updated_at',
+//            'status',
+            [
+                'attribute' => 'status',
+                'format' => 'raw',
+                'value' => function ($data) {
+                    if ($data->status == 1) {
+                        return '<i class="fas fa-check-circle text-success"></i>';
+                    } else {
+                        return '<i class="fas fa-times-circle text-danger"></i>';
+                    }
+                },
+            ],
+//            'created_at',
+            [
+                'attribute' => 'created_at',
+                'format' => ['date', 'php:d/m/Y'],
+            ],
+            //'updated_at',
+            [
+                'attribute' => 'updated_at',
+                'format' => ['date', 'php:d/m/Y'],
+            ],
         ],
     ]) ?>
 
