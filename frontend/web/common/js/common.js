@@ -27,7 +27,7 @@ function deleteCart(id){
     }
 }
 
-function updateCart(id){
+function updateCart(id, amount){
     amount = $("#amount_"+id).val();
     $.get(urlBase+'shopping/updatecart', {'id': id, 'amount':amount}, function (data) {
         val = data.split("-");
@@ -35,7 +35,7 @@ function updateCart(id){
         $("#total").text(val[1]);
         $("#item_"+id).remove();
 
-        $("#listCart").load(urlBase+'shopping/viewcart','#listCart');
+        $("#listCart").load(urlBase+'shopping/viewcart',"#listCart");
     });
 }
 

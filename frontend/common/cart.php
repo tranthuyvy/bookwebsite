@@ -53,12 +53,16 @@
             $session = Yii::$app->session;
             $cart = $session['cart'];
             if (array_key_exists($id, $cart)) {
-                $cart[$id] = [
-                    "product_name" => $cart[$id]["product_name"],
-                    'product_price' => $cart[$id]['product_price'],
-                    "product_image" => $cart[$id]["product_image"],
-                    'amount' => $amount
-                ];
+                if ($amount) {
+                    $cart[$id] = [
+                        "product_name" => $cart[$id]["product_name"],
+                        'product_price' => $cart[$id]['product_price'],
+                        "product_image" => $cart[$id]["product_image"],
+                        'amount' => $amount
+                    ];
+                }else{
+                    unset($cart[$id]);
+                }
                 $session['cart'] = $cart;
             }
         }
