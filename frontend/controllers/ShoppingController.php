@@ -58,6 +58,9 @@ class ShoppingController extends \yii\web\Controller
     }
 
     public function actionUpdatecart($id,$amount){
+//        echo "<pre>";
+//        print_r($id, $amount);
+//        die;
         $session = Yii::$app->session;
         $amount = Yii::$app->getRequest()->getQueryParam('amount');
         $cart = new cart();

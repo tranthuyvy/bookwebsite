@@ -11,10 +11,9 @@
                     <div class="main-circle"><i class="las la-bars"></i></div>
                 </div>
                 <div class="iq-navbar-logo d-flex justify-content-between">
-                    <a href="index.html" class="header-logo">
-                        <img src="common/images/logo.png" class="img-fluid rounded-normal" alt="">
+                    <a href="#" class="header-logo">
                         <div class="logo-title">
-                            <span class="text-primary text-uppercase">img01</span>
+                            <span class="text-primary text-uppercase">logo</span>
                         </div>
                     </a>
                 </div>
@@ -68,49 +67,15 @@
                     </li>
                     <li class="line-height pt-3">
                         <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center">
-                            <img src="common/images/user/2.jpg" class="img-fluid rounded-circle mr-3" alt="user">
+                            <img src="<?php echo Yii::$app->homeUrl?>common/images/user/2.jpg" class="img-fluid rounded-circle mr-3" alt="user">
                             <div class="caption">
                                 <?php
                                     if (!Yii::$app->user->isGuest){
                                 ?>
-                                <h6 class="mb-1 line-height"><?php echo Yii::$app->user->identity->username?></h6>
-                                <p class="mb-0 text-primary">Tài Khoản</p>
+                                <h6 class="mb-1 line-height">Xin Chào <?php echo Yii::$app->user->identity->fullname?></h6>
+<!--                                <p class="mb-0 text-primary">Tài Khoản</p>-->
                             </div>
                         </a>
-                        <div class="iq-sub-dropdown iq-user-dropdown">
-                            <div class="iq-card shadow-none m-0">
-                                <div class="iq-card-body p-0 ">
-                                    <div class="bg-primary p-3">
-                                        <h5 class="mb-0 text-white line-height">Xin Chào <?php echo Yii::$app->user->identity->username?></h5>
-                                    </div>
-                                    <a href="profile-edit.html" class="iq-sub-card iq-bg-primary-hover">
-                                        <div class="media align-items-center">
-                                            <div class="rounded iq-card-icon iq-bg-primary">
-                                                <i class="ri-file-user-line"></i>
-                                            </div>
-                                            <div class="media-body ml-3">
-                                                <h6 class="mb-0 ">Tài khoản</h6>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                    <a href="#" class="iq-sub-card iq-bg-primary-hover">
-                                        <div class="media align-items-center">
-                                            <div class="rounded iq-card-icon iq-bg-primary">
-                                                <i class="ri-account-box-line"></i>
-                                            </div>
-                                            <div class="media-body ml-3">
-                                                <h6 class="mb-0 ">Đơn hàng</h6>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <div class="d-inline-block w-100 text-center p-3">
-                                        <a class="bg-primary iq-sign-btn" href="sign-in.html" role="button">Sign
-                                            out<i class="ri-login-box-line ml-2"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </li>
                     <?php }?>
                 </ul>

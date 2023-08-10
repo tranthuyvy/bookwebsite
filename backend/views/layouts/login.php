@@ -1,41 +1,32 @@
 <?php
 
-/** @var \yii\web\View $this */
-/** @var string $content */
+/** @var yii\web\View $this */
+/** @var yii\bootstrap5\ActiveForm $form */
+/** @var \common\models\LoginForm $model */
 
-use backend\assets\AppAsset;
-use common\widgets\Alert;
-use yii\bootstrap5\Breadcrumbs;
+use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Html;
-use yii\bootstrap5\Nav;
-use yii\bootstrap5\NavBar;
 
-AppAsset::register($this);
+$this->title = 'Login';
 ?>
-<?php $this->beginPage() ?>
-    <!DOCTYPE html>
-    <html lang="<?= Yii::$app->language ?>" class="h-100">
-    <head>
-        <meta charset="<?= Yii::$app->charset ?>">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <?php $this->registerCsrfMetaTags() ?>
-        <title><?= Html::encode($this->title) ?></title>
-        <?php $this->head() ?>
-    </head>
-    <body class="d-flex flex-column h-100">
-    <?php $this->beginBody() ?>
-        <div class="container">
-            <div class="col-md-6 col-md-offset-4">
-                <?= $content ?>
-            </div>
+<div class="site-login">
+    <div class="mt-5 offset-lg-3 col-lg-6">
+        <h1><?= Html::encode($this->title) ?></h1>
+
+        <p>Please fill out the following fields to login:</p>
+
+        <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+
+        <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+
+        <?= $form->field($model, 'password')->passwordInput() ?>
+
+        <?= $form->field($model, 'rememberMe')->checkbox() ?>
+
+        <div class="form-group">
+            <?= Html::submitButton('Login', ['class' => 'btn btn-primary btn-block', 'name' => 'login-button']) ?>
         </div>
 
-        <div class="container">
-            <p class="float-start">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
-            <p class="float-end"><?= Yii::powered() ?></p>
-        </div>
-
-    <?php $this->endBody() ?>
-    </body>
-    </html>
-<?php $this->endPage();
+        <?php ActiveForm::end(); ?>
+    </div>
+</div>

@@ -14,7 +14,7 @@
                                     <h4 class="card-title">Giỏ hàng</h4>
                                 </div>
                             </div>
-                            <div class="iq-card-body" id="listCart">
+                            <div class="iq-card-body" id="listAllCart">
                                 <ul class="list-inline p-0 m-0">
                                     <?php
                                         $total = 0;

@@ -22,7 +22,7 @@ function deleteCart(id){
             $("#total").text(val[1]);
             $("#item_"+id).remove();
 
-            $("#listCart").load(urlBase+'shopping/viewcart','#listCart');
+            $("#listAllCart").load(urlBase+'shopping/viewcart','#listAllCart');
         });
     }
 }
@@ -35,7 +35,7 @@ function updateCart(id, amount){
         $("#total").text(val[1]);
         $("#item_"+id).remove();
 
-        $("#listCart").load(urlBase+'shopping/viewcart',"#listCart");
+        $("#listAllCart").load(urlBase+'shopping/viewcart',"#listAllCart");
     });
 }
 
