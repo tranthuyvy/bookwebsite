@@ -72,68 +72,69 @@ use frontend\models\Product;
                                 </div>
 
                                 <?php
-                                foreach ($orderDetails as $detail){
+                                foreach ($orderDetails as $detail) {
                                     ?>
-                                    <?php if ($detail["order_id"] == $order["order_id"]){ ?>
-                                            <?php
-                                            $product = Product::find()
-                                                ->where(['product_id' => $detail["product_id"]])
-                                                ->asArray()
-                                                ->one();
-                                            if ($product){
-                                        ?>
-                                    <div class="iq-card-body">
-                                        <ul class="list-inline p-0 m-0">
-                                            <li class="checkout-product">
-                                                <div class="row align-items-center">
-                                                    <div class="col-sm-2">
+                                    <?php if ($detail["order_id"] == $order["order_id"]) { ?>
+                                        <?php
+                                        $product = Product::find()
+                                            ->where(['product_id' => $detail["product_id"]])
+                                            ->asArray()
+                                            ->one();
+                                        if ($product) {
+                                            ?>
+                                            <div class="iq-card-body">
+                                                <ul class="list-inline p-0 m-0">
+                                                    <li class="checkout-product">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-sm-2">
                                                         <span class="checkout-product-img">
                                                             <a href="javascript:void();">
                                                                 <img class="img-fluid rounded"
-                                                                     src="<?php echo $product['product_image']?>"
+                                                                     src="<?php echo $product['product_image'] ?>"
                                                                      style="object-fit: cover; height: 100px; width: 150px; margin-left: 30px"
-                                                                     alt="<?= $product["product_name"]?>">
+                                                                     alt="<?= $product["product_name"] ?>">
                                                             </a>
                                                         </span>
-                                                    </div>
-                                                    <div class="col-sm-4">
-                                                        <div class="checkout-product-details">
-                                                            <h5>
-                                                            <?php echo $product["product_name"]?></h5>
-                                                            <div class="price">
-                                                                <h5 style="color: red">
-                                                                    <?php echo number_format($detail['product_price'], 0, ',', '.'); ?>
-                                                                    Đ
-                                                                </h5>
                                                             </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <div class="row">
-                                                            <div class="col-sm-10">
-                                                                <div class="row align-items-center mt-2">
-                                                                    <div class="col-sm-7 col-md-6">
-                                                                        <div>Số Lượng: <?php echo $detail['product_quantity'] ?></div>
+                                                            <div class="col-sm-4">
+                                                                <div class="checkout-product-details">
+                                                                    <h5>
+                                                                        <?php echo $product["product_name"] ?></h5>
+                                                                    <div class="price">
+                                                                        <h5 style="color: red">
+                                                                            <?php echo number_format($detail['product_price'], 0, ',', '.'); ?>
+                                                                            Đ
+                                                                        </h5>
                                                                     </div>
-                                                                    <div class="col-sm-5 col-md-6">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <div class="row">
+                                                                    <div class="col-sm-10">
+                                                                        <div class="row align-items-center mt-2">
+                                                                            <div class="col-sm-7 col-md-6">
+                                                                                <div>Số
+                                                                                    Lượng: <?php echo $detail['product_quantity'] ?></div>
+                                                                            </div>
+                                                                            <div class="col-sm-5 col-md-6">
                                                                         <span class="product-price">
                                                                             <h5 style="color: red">
                                                                                 <?php echo number_format($detail['product_price'] * $detail['product_quantity'], 0, ',', '.');
                                                                                 ?>Đ
                                                                             </h5>
                                                                         </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-2">
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-sm-2">
-                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                            <?php } ?>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        <?php } ?>
                                     <?php } ?>
                                 <?php } ?>
                             </div>

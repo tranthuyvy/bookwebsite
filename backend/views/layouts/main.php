@@ -60,6 +60,7 @@ AppAsset::register($this);
                                     <li><a href="<?php echo Yii::$app->homeUrl.'payment' ?>">Payment</a></li>
                                     <li><a href="<?php echo Yii::$app->homeUrl.'role' ?>">Role</a></li>
                                     <li><a href="<?php echo Yii::$app->homeUrl.'product' ?>">Product</a></li>
+                                    <li><a href="<?php echo Yii::$app->homeUrl.'order' ?>">Order</a></li>
                                 </ul>
                             </li>
                         </ul>
