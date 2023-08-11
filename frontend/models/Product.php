@@ -186,7 +186,7 @@ class Product extends \yii\db\ActiveRecord
             ->asArray()
             ->where('group_id=:group_id',['group_id'=>$group_id])
             ->all();
-        $pages = new Pagination(['totalCount'=> count($data), 'pageSize'=>'3']);
+        $pages = new Pagination(['totalCount'=> count($data), 'pageSize'=>'8']);
         return $pages;
     }
 
@@ -196,7 +196,7 @@ class Product extends \yii\db\ActiveRecord
             ->asArray()
             ->where('author_id=:author_id',['author_id'=>$author_id])
             ->all();
-        $page_author = new Pagination(['totalCount'=> count($data_author), 'pageSize'=>'1']);
+        $page_author = new Pagination(['totalCount'=> count($data_author), 'pageSize'=>'8']);
         return $page_author;
     }
     function getPageSupplierProduct($supplier_id)
@@ -205,7 +205,7 @@ class Product extends \yii\db\ActiveRecord
             ->asArray()
             ->where('supplier_id=:supplier_id',['supplier_id'=>$supplier_id])
             ->all();
-        $page_supplier = new Pagination(['totalCount'=> count($data_supplier), 'pageSize'=>'3']);
+        $page_supplier = new Pagination(['totalCount'=> count($data_supplier), 'pageSize'=>'8']);
         return $page_supplier;
     }
     function getPageAllProduct()

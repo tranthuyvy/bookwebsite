@@ -1,6 +1,8 @@
 <?php
 
 use frontend\models\Wishlist;
+use frontend\models\Product;
+use yii\widgets\LinkPager;
 
 ?>
 <div id="content-page" class="content-page">
@@ -61,7 +63,6 @@ use frontend\models\Wishlist;
                                             <button class="btn btn-outline-primary" type="button" onclick="addCart(<?= $product['product_id']; ?>)">
                                                 <i class="ri-shopping-cart-2-fill text-primary"></i>
                                             </button>
-
                                         </div>
                                     </div>
                                 </div>
@@ -70,6 +71,17 @@ use frontend\models\Wishlist;
                     <?php } ?>
                 </div>
             </div>
+<!--            --><?php
+//            echo LinkPager::widget([
+//                'pagination' => $page_wishlist,
+//                'options' => ['class' => 'pagination justify-content-center'],
+//                'firstPageLabel' => '|<',
+//                'lastPageLabel' => '|>',
+//                'prevPageLabel' => '<',
+//                'nextPageLabel' => '>',
+//                'maxButtonCount' => 5
+//            ]);
+//            ?>
         </div>
     </div>
 </div>
