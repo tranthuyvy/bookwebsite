@@ -157,4 +157,23 @@ class OrderController extends Controller
             'getProductInfo' => 'getProductInfo',
         ]);
     }
+
+    public function actionCancel($order_id)
+    {
+        $order = Order::findOne($order_id);
+
+        if (!$order) {
+            Yii::$app->session->setFlash('error', 'Không tìm thấy đơn hàng.');
+        } else {
+            $order->status = 6;
+            if ($order->save()) {
+                Yii::$app->session->setFlash('success', 'Đơn hàng đã được hủy thành công.');
+            } else {
+                Yii::$app->session->setFlash('error', 'Đã xảy ra lỗi khi hủy đơn hàng.');
+            }
+        }
+
+        return $this->redirect(Yii::$app->request->referrer);
+    }
+
 }

@@ -83,6 +83,12 @@ $statusLabels = [
                                     <div class="iq-header-title">
                                         <h4 class="card-title">Chi tiết đơn hàng</h4>
                                     </div>
+
+                                    <?php if ($order['status'] == 1 || $order['status'] == 2 || $order['status'] == 3){ ?>
+                                        <div class="iq-card-header-toolbar d-flex align-items-center">
+                                            <a href="<?= Yii::$app->urlManager->createUrl(['order/cancel', 'order_id' => $order['order_id']]) ?>" class="btn btn-sm btn-primary view-more" id="cancelOrderButton">Hủy Đơn Hàng</a>
+                                        </div>
+                                    <?php } ?>
                                 </div>
 
                                 <?php
