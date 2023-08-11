@@ -10,7 +10,8 @@ $statusLabels = [
     3 => 'Đang Xử Lý',
     4 => 'Đang Giao Hàng',
     5 => 'Thành Công',
-    6 => 'Hủy Đơn Hàng'
+    6 => 'Yêu Cầu Hủy Đơn',
+    7 => 'Hủy Đơn Hàng'
 ];
 ?>
 <?= topNavWidget::widget() ?>
@@ -84,11 +85,18 @@ $statusLabels = [
                                         <h4 class="card-title">Chi tiết đơn hàng</h4>
                                     </div>
 
-                                    <?php if ($order['status'] == 1 || $order['status'] == 2 || $order['status'] == 3){ ?>
+                                    <?php if ($order['status'] == 1){ ?>
                                         <div class="iq-card-header-toolbar d-flex align-items-center">
                                             <a href="<?= Yii::$app->urlManager->createUrl(['order/cancel', 'order_id' => $order['order_id']]) ?>" class="btn btn-sm btn-primary view-more" id="cancelOrderButton">Hủy Đơn Hàng</a>
                                         </div>
                                     <?php } ?>
+
+                                    <?php if ($order['status'] == 6): ?>
+                                        <div class="corner-badge" style="color: white; background-color: #FE980F">
+                                            Yêu Cầu Hủy Đơn Đang Được Xử Lý
+                                        </div>
+                                    <?php endif; ?>
+
                                 </div>
 
                                 <?php

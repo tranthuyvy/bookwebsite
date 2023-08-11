@@ -167,9 +167,9 @@ class OrderController extends Controller
         } else {
             $order->status = 6;
             if ($order->save()) {
-                Yii::$app->session->setFlash('success', 'Đơn hàng đã được hủy thành công.');
+                Yii::$app->session->setFlash('success', 'Yêu Cầu Hủy Đơn Đã Được Gửi');
             } else {
-                Yii::$app->session->setFlash('error', 'Đã xảy ra lỗi khi hủy đơn hàng.');
+                Yii::$app->session->setFlash('error', 'Đã xảy ra lỗi khi gửi yêu cầu hủy đơn hàng.');
             }
         }
 

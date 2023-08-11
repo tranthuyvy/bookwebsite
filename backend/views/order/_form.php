@@ -32,7 +32,8 @@ use yii\widgets\ActiveForm;
         '3' => 'Đang Xử Lý',
         '4' => 'Đang Giao Hàng',
         '5' => 'Thành Công',
-        '6' => 'Hủy Đơn Hàng'
+        '6' => 'Yêu Cầu Hủy Đơn',
+        '7' => 'Hủy Đơn Hàng'
     ]) ?>
 
     <?= $form->field($model, 'created_at')->textInput() ?>

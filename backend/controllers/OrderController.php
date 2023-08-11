@@ -46,7 +46,8 @@ class OrderController extends Controller
             3 => 'Đang Xử Lý',
             4 => 'Đang Giao Hàng',
             5 => 'Thành Công',
-            6 => 'Hủy Đơn Hàng'
+            6 => 'Yêu Cầu Hủy Đơn',
+            7 => 'Hủy Đơn Hàng'
         ];
         $searchModel = new OrderSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
@@ -141,7 +142,7 @@ class OrderController extends Controller
     {
         $order = $this->findModel($order_id);
 
-        $order->status = 6;
+        $order->status = 7;
         $order->save();
 
         return $this->redirect(['index']);
