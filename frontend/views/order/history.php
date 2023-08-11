@@ -4,6 +4,14 @@ use yii\helpers\Html;
 use frontend\widgets\topNavWidget;
 use frontend\models\Product;
 
+$statusLabels = [
+    1 => 'Chờ Xác Nhận',
+    2 => 'Đã Xác Nhận',
+    3 => 'Đang Xử Lý',
+    4 => 'Đang Giao Hàng',
+    5 => 'Thành Công',
+    6 => 'Hủy Đơn Hàng'
+];
 ?>
 <?= topNavWidget::widget() ?>
 <div id="content-page" class="content-page">
@@ -45,8 +53,14 @@ use frontend\models\Product;
                                     <div class="d-flex justify-content-between mb-1">
                                         <span>Ngày đặt</span>
                                         <span class="text-dark">
-                                        <?= Yii::$app->formatter->format($order['created_at'], ['date', 'php:d/m/Y']) ?>
-                                    </span>
+                                            <?= Yii::$app->formatter->format($order['created_at'], ['date', 'php:d/m/Y']) ?>
+                                        </span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span>Trạng thái đơn hàng</span>
+                                        <span class="text-dark">
+                                            <?php echo $statusLabels[$order['status']] ?>
+                                        </span>
                                     </div>
                                     <hr>
                                     <div class="d-flex justify-content-between">

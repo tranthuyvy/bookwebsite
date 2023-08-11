@@ -141,6 +141,7 @@ class OrderController extends Controller
         $orders = Order::find()
             ->asArray()
             ->where(['user_id' => $user_id])
+            ->orderBy(['created_at' => SORT_DESC])
             ->all();
 
         $orderIds = array_column($orders, 'order_id');
