@@ -92,8 +92,10 @@ class ProductController extends \yii\web\Controller
         $product_search = Product::find()
             ->where(['like', 'product_name', $searchQuery])
             ->orWhere(['like', 'author.author_name', $searchQuery])
+            ->orWhere(['like', 'group.group_name', $searchQuery])
             ->orWhere(['like', 'supplier.supplier_name', $searchQuery])
             ->leftJoin('author', 'author.author_id = product.author_id')
+            ->leftJoin('group', 'group.group_id = product.group_id')
             ->leftJoin('supplier', 'supplier.supplier_id = product.supplier_id')
             ->asArray()
             ->all();
