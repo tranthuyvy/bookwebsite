@@ -22,9 +22,12 @@
                 <h5 class="mb-0"></h5>
             </div>
             <div class="iq-search-bar">
-                <form action="#" class="searchbox">
-                    <input type="text" class="text search-input" placeholder="Tìm kiếm sản phẩm...">
-                    <a class="search-link" href="#"><i class="ri-search-line"></i></a>
+                <form action="<?= Yii::$app->urlManager->createUrl(['product/search']) ?>" class="searchbox" method="get">
+                    <input type="text" name="searchQuery" class="text search-input" placeholder="Tìm kiếm sản phẩm...">
+                    <button style="margin-left: -10px; margin-top: -2px" type="submit" class="search-link" href="#">
+                        <i class="ri-search-line"></i>
+                    </button>
+<!--                    <a class="search-link" href="#"><i class="ri-search-line"></i></a>-->
                 </form>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse"

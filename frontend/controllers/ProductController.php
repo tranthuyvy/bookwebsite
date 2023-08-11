@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use frontend\models\Product;
+use Yii;
 
 class ProductController extends \yii\web\Controller
 {
@@ -83,5 +84,24 @@ class ProductController extends \yii\web\Controller
            'data_all' => $data_all,
             'page_all' => $page_all,
         ]);
+    }
+
+    public function actionSearch(){
+        $searchQuery =  Yii::$app->request->get('searchQuery');
+
+        $product_search = Product::find()
+            ->where(['like', 'product_name', $searchQuery])
+            ->orWhere(['like', 'author.author_name', $searchQuery])
+            ->orWhere(['like', 'supplier.supplier_name', $searchQuery])
+            ->leftJoin('author', 'author.author_id = product.author_id')
+            ->leftJoin('supplier', 'supplier.supplier_id = product.supplier_id')
+            ->asArray()
+            ->all();
+
+        return $this->render('search', [
+            'searchQuery' => $searchQuery,
+            'product_search' => $product_search,
+        ]);
+
     }
 }
