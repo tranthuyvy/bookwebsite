@@ -1,7 +1,10 @@
 <?php
     use frontend\widgets\topNavWidget;
+    use frontend\widgets\leftMenuWidget;
 ?>
 <?= topNavWidget::widget() ?>
+<?= leftMenuWidget::widget() ?>
+
 <div id="content-page" class="content-page">
     <div class="container-fluid checkout-content">
         <div class="row">
