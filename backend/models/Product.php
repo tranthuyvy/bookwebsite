@@ -49,7 +49,7 @@ class Product extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'product_id' => 'Product ID',
+            'product_id' => 'Mã Sản Phẩm',
             'product_name' => 'Tên Sản Phẩm',
             'product_image' => 'Hình Ảnh Sản Phẩm',
             'product_price' => 'Giá Sản Phẩm',
@@ -59,8 +59,8 @@ class Product extends \yii\db\ActiveRecord
             'author_id' => 'Tác Giả',
             'status' => 'Trạng Thái',
             'user_id' => 'Người tạo',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'created_at' => 'Ngày Tạo',
+            'updated_at' => 'Ngày Cập Nhật',
         ];
     }
 }
