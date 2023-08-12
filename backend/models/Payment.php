@@ -41,11 +41,11 @@ class Payment extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'payment_id' => 'Payment ID',
-            'payment_name' => 'Payment Name',
-            'status' => 'Status',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'payment_id' => 'Mã Phương Thức Thanh Toán',
+            'payment_name' => 'Tên Phương Thức Thanh Toán',
+            'status' => 'Trạng Thái',
+            'created_at' => 'Ngày Tạo',
+            'updated_at' => 'Ngày Cập Nhật',
         ];
     }
 }

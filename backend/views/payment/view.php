@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /** @var backend\models\Payment $model */
 
 $this->title = $model->payment_name;
-$this->params['breadcrumbs'][] = ['label' => 'Payments', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Danh Sách Phương Thức Thanh Toán', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -16,11 +16,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'payment_id' => $model->payment_id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'payment_id' => $model->payment_id], [
+        <?= Html::a('Cập Nhật', ['update', 'payment_id' => $model->payment_id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Xóa', ['delete', 'payment_id' => $model->payment_id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Bạn có chắc chắn muốn vô hiệu hóa?',
                 'method' => 'post',
             ],
         ]) ?>
