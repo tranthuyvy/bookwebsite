@@ -54,14 +54,14 @@ AppAsset::register($this);
                         <ul class="nav side-menu">
                             <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="<?php echo Yii::$app->homeUrl.'group' ?>">Group</a></li>
-                                    <li><a href="<?php echo Yii::$app->homeUrl.'author' ?>">Author</a></li>
-                                    <li><a href="<?php echo Yii::$app->homeUrl.'supplier' ?>">Supplier</a></li>
-                                    <li><a href="<?php echo Yii::$app->homeUrl.'payment' ?>">Payment</a></li>
-                                    <li><a href="<?php echo Yii::$app->homeUrl.'role' ?>">Role</a></li>
-                                    <li><a href="<?php echo Yii::$app->homeUrl.'product' ?>">Product</a></li>
-                                    <li><a href="<?php echo Yii::$app->homeUrl.'order' ?>">Order</a></li>
-                                    <li><a href="<?php echo Yii::$app->homeUrl.'user' ?>">User</a></li>
+                                    <li><a href="<?php echo Yii::$app->homeUrl.'group' ?>">Thể Loại</a></li>
+                                    <li><a href="<?php echo Yii::$app->homeUrl.'author' ?>">Tác Giả</a></li>
+                                    <li><a href="<?php echo Yii::$app->homeUrl.'supplier' ?>">Nhà Xuất Bản</a></li>
+                                    <li><a href="<?php echo Yii::$app->homeUrl.'payment' ?>">Phương Thức Thanh Toán</a></li>
+                                    <li><a href="<?php echo Yii::$app->homeUrl.'role' ?>">Quyền</a></li>
+                                    <li><a href="<?php echo Yii::$app->homeUrl.'product' ?>">Sản Phẩm</a></li>
+                                    <li><a href="<?php echo Yii::$app->homeUrl.'order' ?>">Đơn Hàng</a></li>
+                                    <li><a href="<?php echo Yii::$app->homeUrl.'user' ?>">Thành Viên</a></li>
                                 </ul>
                             </li>
                         </ul>

@@ -5,6 +5,7 @@ use backend\models\Group;
 use backend\models\Author;
 use backend\models\Supplier;
 use yii\helpers\Html;
+use yii\helpers\StringHelper;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
@@ -50,7 +51,14 @@ $this->params['breadcrumbs'][] = $this->title;
                     return number_format($data->product_price, 0, ',', '.') . 'Đ';
                 },
             ],
-            'product_description:ntext',
+//            'product_description:ntext',
+            [
+                'attribute' => 'product_description',
+                'format' => 'ntext',
+                'value' => function ($data) {
+                    return StringHelper::truncate($data->product_description, 300);
+                },
+            ],
 //            'group_id',
             [
                 'attribute' => 'group_id', 'value' => function ($data) {
