@@ -69,7 +69,6 @@ class UserController extends Controller
     {
         $model = new User();
         $time = time();
-        $model->status = 1;
         $model->created_at = $time;
         $model->updated_at = $time;
 

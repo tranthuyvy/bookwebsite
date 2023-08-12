@@ -27,12 +27,10 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'payment_id')->textInput() ?>
 
     <?= $form->field($model, 'status')->dropDownList([
-        '1' => 'Chờ Xác Nhận',
         '2' => 'Đã Xác Nhận',
         '3' => 'Đang Xử Lý',
         '4' => 'Đang Giao Hàng',
         '5' => 'Thành Công',
-        '6' => 'Yêu Cầu Hủy Đơn',
         '7' => 'Hủy Đơn Hàng'
     ]) ?>
 
