@@ -43,13 +43,13 @@ class Supplier extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'supplier_id' => 'Supplier ID',
-            'supplier_name' => 'Supplier Name',
-            'supplier_phone' => 'Supplier Phone',
-            'supplier_address' => 'Supplier Address',
-            'status' => 'Status',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'supplier_id' => 'Mã Nhà Xuất Bản',
+            'supplier_name' => 'Tên Nhà Xuất Bản',
+            'supplier_phone' => 'Số Điện Thoại Nhà Xuất Bản',
+            'supplier_address' => 'Địa Chỉ Nhà Xuất Bản',
+            'status' => 'Trạng Thái',
+            'created_at' => 'Ngày Tạo',
+            'updated_at' => 'Ngày Cập Nhật',
         ];
     }
 

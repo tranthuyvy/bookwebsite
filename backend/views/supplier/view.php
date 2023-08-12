@@ -6,8 +6,8 @@ use yii\widgets\DetailView;
 /** @var yii\web\View $this */
 /** @var backend\models\Supplier $model */
 
-$this->title = $model->supplier_id;
-$this->params['breadcrumbs'][] = ['label' => 'Suppliers', 'url' => ['index']];
+$this->title = $model->supplier_name;
+$this->params['breadcrumbs'][] = ['label' => 'Danh Sách Nhà Xuất Bản', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -16,11 +16,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'supplier_id' => $model->supplier_id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'supplier_id' => $model->supplier_id], [
+        <?= Html::a('Cập Nhật', ['update', 'supplier_id' => $model->supplier_id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Xóa', ['delete', 'supplier_id' => $model->supplier_id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Bạn chắc chắn muốn xóa nhà xuất bản?',
                 'method' => 'post',
             ],
         ]) ?>

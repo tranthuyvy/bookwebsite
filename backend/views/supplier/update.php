@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var backend\models\Supplier $model */
 
-$this->title = 'Update Supplier: ' . $model->supplier_id;
-$this->params['breadcrumbs'][] = ['label' => 'Suppliers', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->supplier_id, 'url' => ['view', 'supplier_id' => $model->supplier_id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = 'Cập Nhật Nhà Xuất Bản: ' . $model->supplier_name;
+$this->params['breadcrumbs'][] = ['label' => 'Danh Sách Nhà Xuất Bản', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->supplier_name, 'url' => ['view', 'supplier_id' => $model->supplier_id]];
+$this->params['breadcrumbs'][] = 'Cập Nhật';
 ?>
 <div class="supplier-update">
 
