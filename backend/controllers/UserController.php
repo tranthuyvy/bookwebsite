@@ -2,16 +2,16 @@
 
 namespace backend\controllers;
 
-use backend\models\Author;
-use backend\models\AuthorSearch;
+use backend\models\User;
+use backend\models\UserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * AuthorController implements the CRUD actions for Author model.
+ * UserController implements the CRUD actions for User model.
  */
-class AuthorController extends Controller
+class UserController extends Controller
 {
     /**
      * @inheritDoc
@@ -32,13 +32,13 @@ class AuthorController extends Controller
     }
 
     /**
-     * Lists all Author models.
+     * Lists all User models.
      *
      * @return string
      */
     public function actionIndex()
     {
-        $searchModel = new AuthorSearch();
+        $searchModel = new UserSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -48,33 +48,34 @@ class AuthorController extends Controller
     }
 
     /**
-     * Displays a single Author model.
-     * @param int $author_id Author ID
+     * Displays a single User model.
+     * @param int $id ID
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($author_id)
+    public function actionView($id)
     {
         return $this->render('view', [
-            'model' => $this->findModel($author_id),
+            'model' => $this->findModel($id),
         ]);
     }
 
     /**
-     * Creates a new Author model.
+     * Creates a new User model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
     public function actionCreate()
     {
-        $model = new Author();
+        $model = new User();
         $time = time();
+        $model->status = 1;
         $model->created_at = $time;
         $model->updated_at = $time;
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'author_id' => $model->author_id]);
+                return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {
             $model->loadDefaultValues();
@@ -86,19 +87,19 @@ class AuthorController extends Controller
     }
 
     /**
-     * Updates an existing Author model.
+     * Updates an existing User model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param int $author_id Author ID
+     * @param int $id ID
      * @return string|\yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($author_id)
+    public function actionUpdate($id)
     {
-        $model = $this->findModel($author_id);
+        $model = $this->findModel($id);
         $model->updated_at = time();
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'author_id' => $model->author_id]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
@@ -107,32 +108,32 @@ class AuthorController extends Controller
     }
 
     /**
-     * Deletes an existing Author model.
+     * Deletes an existing User model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param int $author_id Author ID
+     * @param int $id ID
      * @return \yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($author_id)
+    public function actionDelete($id)
     {
-        $author = $this->findModel($author_id);
+        $user = $this->findModel($id);
 
-        $author->status = 0;
-        $author->save();
+        $user->status = 0;
+        $user->save();
 
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Author model based on its primary key value.
+     * Finds the User model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param int $author_id Author ID
-     * @return Author the loaded model
+     * @param int $id ID
+     * @return User the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($author_id)
+    protected function findModel($id)
     {
-        if (($model = Author::findOne(['author_id' => $author_id])) !== null) {
+        if (($model = User::findOne(['id' => $id])) !== null) {
             return $model;
         }
 
