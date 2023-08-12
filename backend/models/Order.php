@@ -47,16 +47,16 @@ class Order extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'order_id' => 'Order ID',
-            'user_id' => 'User ID',
-            'user_name' => 'User Name',
-            'user_email' => 'User Email',
-            'user_mobile' => 'User Mobile',
-            'user_address' => 'User Address',
-            'totalMoney' => 'Total Money',
-            'payment_id' => 'Payment ID',
-            'status' => 'Status',
-            'created_at' => 'Created At',
+            'order_id' => 'Mã Đơn Hàng',
+            'user_id' => 'Mã Người Đặt',
+            'user_name' => 'Tên Người Nhận',
+            'user_email' => 'Email',
+            'user_mobile' => 'Số Điện Thoại Người Nhận',
+            'user_address' => 'Địa Chỉ Người Nhận',
+            'totalMoney' => 'Tổng Hóa Đơn',
+            'payment_id' => 'Phương Thức Thanh Toán',
+            'status' => 'Trạng Thái',
+            'created_at' => 'Ngày Tạo',
         ];
     }
 }

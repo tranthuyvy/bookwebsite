@@ -11,7 +11,7 @@ use yii\grid\GridView;
 /** @var backend\models\OrderSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Orders';
+$this->title = 'Đơn Hàng';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="order-index">

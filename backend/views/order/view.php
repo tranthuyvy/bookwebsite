@@ -9,7 +9,7 @@ use yii\widgets\DetailView;
 /** @var backend\models\Order $model */
 
 $this->title = $model->order_id;
-$this->params['breadcrumbs'][] = ['label' => 'Orders', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Danh Sách Đơn Hàng', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -18,12 +18,12 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'order_id' => $model->order_id],
+        <?= Html::a('Cập Nhật', ['update', 'order_id' => $model->order_id],
             ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'order_id' => $model->order_id],
+        <?= Html::a('Hủy Đơn', ['delete', 'order_id' => $model->order_id],
             ['class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Bạn có chắc chắn muốn hủy đơn hàng?',
                 'method' => 'post',
             ],
         ]) ?>
