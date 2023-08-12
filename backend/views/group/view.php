@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /** @var backend\models\Group $model */
 
 $this->title = $model->group_name;
-$this->params['breadcrumbs'][] = ['label' => 'Groups', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Danh Sách Thể Loại', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -16,11 +16,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'group_id' => $model->group_id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'group_id' => $model->group_id], [
+        <?= Html::a('Cập Nhật', ['update', 'group_id' => $model->group_id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Xóa', ['delete', 'group_id' => $model->group_id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Bạn có chắc chắn muốn vô hiệu hóa?',
                 'method' => 'post',
             ],
         ]) ?>

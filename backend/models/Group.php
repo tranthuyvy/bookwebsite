@@ -41,11 +41,11 @@ class Group extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'group_id' => 'Group ID',
-            'group_name' => 'Group Name',
-            'status' => 'Status',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'group_id' => 'Mã Thể Loại',
+            'group_name' => 'Tên Thể Loại',
+            'status' => 'Trạng Thái',
+            'created_at' => 'Ngày Tạo',
+            'updated_at' => 'Ngày Cập Nhật',
         ];
     }
 
