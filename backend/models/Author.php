@@ -41,11 +41,11 @@ class Author extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'author_id' => 'Author ID',
-            'author_name' => 'Author Name',
-            'status' => 'Status',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'author_id' => 'Mã Tác Giả',
+            'author_name' => 'Tên Tác Giả',
+            'status' => 'Trạng Thái',
+            'created_at' => 'Ngày Tạo',
+            'updated_at' => 'Ngày Cập Nhật',
         ];
     }
 

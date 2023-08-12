@@ -6,8 +6,8 @@ use yii\widgets\DetailView;
 /** @var yii\web\View $this */
 /** @var backend\models\Author $model */
 
-$this->title = $model->author_id;
-$this->params['breadcrumbs'][] = ['label' => 'Authors', 'url' => ['index']];
+$this->title = $model->author_name;
+$this->params['breadcrumbs'][] = ['label' => 'Danh Sách Tác Giả', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -16,11 +16,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'author_id' => $model->author_id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'author_id' => $model->author_id], [
+        <?= Html::a('Cập Nhật', ['update', 'author_id' => $model->author_id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Xóa', ['delete', 'author_id' => $model->author_id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Bạn có chắc chắn muốn vô hiệu hóa?',
                 'method' => 'post',
             ],
         ]) ?>
