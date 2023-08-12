@@ -10,7 +10,7 @@ use yii\grid\GridView;
 /** @var backend\models\RoleSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Roles';
+$this->title = 'Danh Sách Quyền';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="role-index">
@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Role', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Tạo Mới Quyền', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>

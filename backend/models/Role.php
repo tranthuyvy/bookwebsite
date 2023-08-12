@@ -41,11 +41,11 @@ class Role extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'role_id' => 'Role ID',
-            'role_name' => 'Role Name',
-            'status' => 'Status',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'role_id' => 'Mã Quyền',
+            'role_name' => 'Tên Quyền',
+            'status' => 'Trạng Thái',
+            'created_at' => 'Ngày Tạo',
+            'updated_at' => 'Ngày Cập Nhật',
         ];
     }
 }

@@ -6,8 +6,8 @@ use yii\widgets\DetailView;
 /** @var yii\web\View $this */
 /** @var backend\models\Role $model */
 
-$this->title = $model->role_id;
-$this->params['breadcrumbs'][] = ['label' => 'Roles', 'url' => ['index']];
+$this->title = $model->role_name;
+$this->params['breadcrumbs'][] = ['label' => 'Danh Sách Sản Phẩm', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -16,11 +16,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'role_id' => $model->role_id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'role_id' => $model->role_id], [
+        <?= Html::a('Cập Nhật', ['update', 'role_id' => $model->role_id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Xóa', ['delete', 'role_id' => $model->role_id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Bạn có chắc chắn xóa?',
                 'method' => 'post',
             ],
         ]) ?>
