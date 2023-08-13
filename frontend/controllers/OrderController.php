@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use frontend\models\Order;
 use frontend\models\OrderDetail;
 use frontend\models\OrderSearch;
+use frontend\models\Review;
 use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -176,4 +177,40 @@ class OrderController extends Controller
         return $this->redirect(Yii::$app->request->referrer);
     }
 
+    public function actionReview($order_id)
+    {
+        $reviewForm = new Review();
+        $order = Order::findOne($order_id);
+
+        if ($reviewForm->load(Yii::$app->request->post())) {
+            if (!$order || $order->status != 5) {
+                Yii::$app->session->setFlash('error', 'Không tìm thấy đơn hàng hoặc đơn hàng không hợp lệ.');
+                return $this->redirect(['history']);
+            }
+
+            foreach ($reviewForm->rating as $product_id => $rating) {
+                $orderDetail = OrderDetail::find()
+                    ->where(['order_id' => $order->order_id, 'product_id' => $product_id])
+                    ->one();
+
+                if ($orderDetail) {
+                    $review = new Review();
+                    $review->product_id = $product_id;
+                    $review->user_id = Yii::$app->user->id;
+                    $review->rating = $rating;
+                    $review->comment = $reviewForm->comment[$product_id];
+                    $review->created_at = time();
+                    $review->save();
+                }
+            }
+
+            Yii::$app->session->setFlash('success', 'Cảm ơn bạn đã đánh giá sản phẩm.');
+            return $this->redirect(['history']);
+        }
+
+        return $this->render('review', [
+            'order' => $order,
+            'reviewForm' => $reviewForm,
+        ]);
+    }
 }

@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use frontend\models\Product;
+use frontend\models\Review;
 use Yii;
 
 class ProductController extends \yii\web\Controller

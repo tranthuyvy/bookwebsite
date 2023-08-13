@@ -91,6 +91,12 @@ $statusLabels = [
                                         </div>
                                     <?php } ?>
 
+                                    <?php if ($order['status'] == 5) { ?>
+                                        <div class="iq-card-header-toolbar d-flex align-items-center">
+                                            <a href="<?= Yii::$app->urlManager->createUrl(['order/review', 'order_id' => $order['order_id']]) ?>" class="btn btn-sm btn-primary">Đánh giá sản phẩm đã mua</a>
+                                        </div>
+                                    <?php } ?>
+
                                     <?php if ($order['status'] == 6): ?>
                                         <div class="corner-badge" style="color: white; background-color: #FE980F">
                                             Yêu Cầu Hủy Đơn Đang Được Xử Lý

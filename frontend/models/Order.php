@@ -59,4 +59,8 @@ class Order extends \yii\db\ActiveRecord
             'created_at' => 'Created At',
         ];
     }
+    public function getOrderDetails()
+    {
+        return $this->hasMany(OrderDetail::class, ['order_id' => 'order_id']);
+    }
 }
