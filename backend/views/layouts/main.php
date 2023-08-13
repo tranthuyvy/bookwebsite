@@ -62,6 +62,7 @@ AppAsset::register($this);
                                     <li><a href="<?php echo Yii::$app->homeUrl.'product' ?>">Sản Phẩm</a></li>
                                     <li><a href="<?php echo Yii::$app->homeUrl.'order' ?>">Đơn Hàng</a></li>
                                     <li><a href="<?php echo Yii::$app->homeUrl.'user' ?>">Thành Viên</a></li>
+                                    <li><a href="<?php echo Yii::$app->homeUrl.'review' ?>">Đánh Giá</a></li>
                                 </ul>
                             </li>
                         </ul>

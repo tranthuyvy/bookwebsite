@@ -1,9 +1,9 @@
 <?php
 
-namespace frontend\controllers;
+namespace backend\controllers;
 
-use frontend\models\Review;
-use frontend\models\ReviewSearch;
+use backend\models\Review;
+use backend\models\ReviewSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -111,7 +111,7 @@ class ReviewController extends Controller
      */
     public function actionDelete($review_id)
     {
-        $this->findModel($review_id)->delete();
+        $this->findModel($review_id);
 
         return $this->redirect(['index']);
     }

@@ -1,13 +1,13 @@
 <?php
 
-use frontend\models\Review;
+use backend\models\Review;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 
 /** @var yii\web\View $this */
-/** @var frontend\models\ReviewSearch $searchModel */
+/** @var backend\models\ReviewSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
 $this->title = 'Reviews';
