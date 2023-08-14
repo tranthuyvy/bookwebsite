@@ -62,8 +62,6 @@ class AppAsset extends AssetBundle
         'common/js/charts.js',
         'common/js/chart-custom.js',
         'common/js/custom.js',
-        'https://code.highcharts.com/highcharts.js',
-        'https://cdn.jsdelivr.net/npm/chart.js',
 
     ];
     public $depends = [

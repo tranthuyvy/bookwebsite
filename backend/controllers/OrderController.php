@@ -193,12 +193,28 @@ class OrderController extends Controller
 
         $totalIncome = (float) $data_total['totalIncome'];
 
+        $data = Order::find()
+            ->select([
+                'DATE(FROM_UNIXTIME(created_at)) AS date',
+                'SUM(totalMoney) AS total',
+            ])
+            ->where(['status' => 5]) // Chỉ lấy các đơn hàng có trạng thái thành công
+            ->groupBy('DATE(FROM_UNIXTIME(created_at))')
+            ->asArray()
+            ->all();
+
+        $dailySalesData = [];
+        foreach ($data as $entry) {
+            $dailySalesData[] = [$entry['date'], (int) $entry['total']];
+        }
+
         return $this->render('chart', [
             'totalBooks' => $totalBooks,
             'totalUsers' => $totalUsers,
             'totalOrders' => $totalOrders,
             'totalOrdersSuccess' => $totalOrdersSuccess,
             'totalIncome' => $totalIncome,
+            'dailySalesData' => $dailySalesData,
         ]);
     }
 }
