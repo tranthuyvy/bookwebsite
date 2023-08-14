@@ -78,10 +78,7 @@ class ShoppingController extends \yii\web\Controller
     public function actionViewcart(){
         $this->layout='cartlayout';
         $session = Yii::$app->session;
-        $province = new Province();
-        $province = $province->getAllProvince();
-
-        return $this->render('viewCart', ['cart'=>$session['cart'], 'province'=>$province]);
+        return $this->render('viewCart', ['cart'=>$session['cart']]);
     }
 
     function actionCheckout()

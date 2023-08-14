@@ -208,6 +208,22 @@ class OrderController extends Controller
             $dailySalesData[] = [$entry['date'], (int) $entry['total']];
         }
 
+        $data2 = Order::find()
+            ->select([
+                'DATE_FORMAT(FROM_UNIXTIME(created_at), "%Y-%m") AS month',
+                'SUM(totalMoney) AS total'
+            ])
+            ->where(['status' => 5])
+            ->groupBy('month')
+            ->orderBy('month')
+            ->asArray()
+            ->all();
+
+        $monthlySalesData = [];
+        foreach ($data2 as $entry) {
+            $monthlySalesData[] = [$entry['month'], (int) $entry['total']];
+        }
+
         return $this->render('chart', [
             'totalBooks' => $totalBooks,
             'totalUsers' => $totalUsers,
@@ -215,6 +231,7 @@ class OrderController extends Controller
             'totalOrdersSuccess' => $totalOrdersSuccess,
             'totalIncome' => $totalIncome,
             'dailySalesData' => $dailySalesData,
+            'monthlySalesData' => $monthlySalesData,
         ]);
     }
 }

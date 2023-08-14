@@ -1,5 +1,4 @@
 <?php
-    use dosamigos\chartjs\ChartJs;
     use yii\helpers\Json;
     use yii\web\JsExpression;
 ?>
@@ -109,7 +108,7 @@
             <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                 <div class="iq-card-header d-flex justify-content-between align-items-center">
                     <div class="iq-header-title">
-                        <h4 class="card-title mb-0">Thu Nhập Theo Ngày</h4>
+                        <h4 class="card-title mb-0">Doanh Thu Theo Ngày</h4>
                     </div>
                 </div>
             <div class="iq-card-body">
