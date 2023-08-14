@@ -63,6 +63,7 @@ AppAsset::register($this);
                                     <li><a href="<?php echo Yii::$app->homeUrl.'order' ?>">Đơn Hàng</a></li>
                                     <li><a href="<?php echo Yii::$app->homeUrl.'user' ?>">Thành Viên</a></li>
                                     <li><a href="<?php echo Yii::$app->homeUrl.'review' ?>">Đánh Giá</a></li>
+                                    <li><a href="<?php echo Yii::$app->homeUrl.'order/chart' ?>">Thống Kê</a></li>
                                 </ul>
                             </li>
                         </ul>

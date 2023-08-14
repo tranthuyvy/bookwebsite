@@ -5,6 +5,7 @@ namespace backend\controllers;
 use backend\models\Order;
 use backend\models\OrderSearch;
 use backend\models\Product;
+use backend\models\User;
 use frontend\models\OrderDetail;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -162,5 +163,42 @@ class OrderController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    public function actionChart()
+    {
+        $totalBooks = Product::find()
+            ->asArray()
+            ->where(['status'=>'1'])
+            ->count();
+
+        $totalUsers = User::find()
+            ->asArray()
+            ->where(['status'=>'10'])
+            ->count();
+
+        $totalOrders = Order::find()
+            ->where(['status' => 1])
+            ->count();
+
+        $totalOrdersSuccess = Order::find()
+            ->where(['status' => 5])
+            ->count();
+
+        $data_total = Order::find()
+            ->select(['SUM(totalMoney) AS totalIncome'])
+            ->where(['status' => 5])
+            ->asArray()
+            ->one();
+
+        $totalIncome = (float) $data_total['totalIncome'];
+
+        return $this->render('chart', [
+            'totalBooks' => $totalBooks,
+            'totalUsers' => $totalUsers,
+            'totalOrders' => $totalOrders,
+            'totalOrdersSuccess' => $totalOrdersSuccess,
+            'totalIncome' => $totalIncome,
+        ]);
     }
 }

@@ -20,7 +20,9 @@ class AppAsset extends AssetBundle
         'vendors/jqvmap/dist/jqvmap.min.css',
         'vendors/bootstrap-daterangepicker/daterangepicker.css',
         'build/css/custom.min.css',
-        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css',
+        'common/css/typography.css',
+        'common/css/style.css',
     ];
     public $js = [
         'vendors/jquery/dist/jquery.min.js',
@@ -47,7 +49,21 @@ class AppAsset extends AssetBundle
         'vendors/bootstrap-daterangepicker/daterangepicker.js',
         'build/js/custom.min.js',
         'js/tinymce/tinymce.min.js',
-        'js/main.js'
+        'common/js/popper.min.js',
+        'common/js/jquery.appear.js',
+        'common/js/waypoints.min.js',
+        'common/js/jquery.counterup.min.js',
+        'common/js/apexcharts.js',
+        'common/js/slick.min.js',
+        'common/js/select2.min.js',
+        'common/js/jquery.magnific-popup.min.js',
+        'common/js/smooth-scrollbar.js',
+        'common/js/lottie.js',
+        'common/js/charts.js',
+        'common/js/chart-custom.js',
+        'common/js/custom.js',
+        'https://code.highcharts.com/highcharts.js',
+        'https://cdn.jsdelivr.net/npm/chart.js',
 
     ];
     public $depends = [
