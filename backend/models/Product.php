@@ -63,4 +63,22 @@ class Product extends \yii\db\ActiveRecord
             'updated_at' => 'Ngày Cập Nhật',
         ];
     }
+    public function getUser()
+    {
+        return $this->hasOne(User::class, ['id' => 'user_id']);
+    }
+    public function getAuthor()
+    {
+        return $this->hasOne(Author::class, ['author_id' => 'author_id']);
+    }
+
+    public function getSupplier()
+    {
+        return $this->hasOne(Supplier::class, ['supplier_id' => 'supplier_id']);
+    }
+
+    public function getGroup()
+    {
+        return $this->hasOne(Group::class, ['group_id' => 'group_id']);
+    }
 }
