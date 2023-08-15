@@ -120,11 +120,11 @@ use frontend\models\Product;
                                     </div>
                                     <div class="mb-3 d-block">
                                           <span class="font-size-20 text-warning">
-                                          <i class="fa fa-star mr-1"></i>
-                                          <i class="fa fa-star mr-1"></i>
-                                          <i class="fa fa-star mr-1"></i>
-                                          <i class="fa fa-star mr-1"></i>
-                                          <i class="fa fa-star"></i>
+                                              <i class="fa fa-star mr-1"></i>
+                                              <i class="fa fa-star mr-1"></i>
+                                              <i class="fa fa-star mr-1"></i>
+                                              <i class="fa fa-star mr-1"></i>
+                                              <i class="fa fa-star"></i>
                                           </span>
                                     </div>
                                     <span class="text-dark mb-4 pb-4 iq-border-bottom d-block">
@@ -157,7 +157,46 @@ use frontend\models\Product;
             </div>
         </div>
 
-<!--        Sản phẩm tương tự -->
+        <div class="col-md-12">
+            <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                <div class="iq-card-header d-flex justify-content-between align-items-center position-relative">
+                    <div class="iq-card-body p-0">
+
+                        <h4 class="card-title mb-3">Đánh giá sản phẩm</h4>
+
+                        <ul class="list-unstyled">
+                            <?php foreach ($productReviews as $review): ?>
+                                <li class="media mb-4">
+                                    <img src="<?php echo Yii::$app->homeUrl ?>common/images/user/2.jpg"
+                                         class="mr-3 rounded-circle" alt="User Avatar" width="64" height="64">
+                                    <div class="media-body">
+                                        <h6 class="mt-0 mb-1">
+                                            <?php
+                                            if (isset($review->user->fullname)) {
+                                                echo $review->user->fullname;
+                                            } else {
+                                                echo $review->user->username;
+                                            }
+                                            ?>
+                                        </h6>
+                                        <div class="text-warning">
+                                            <?php
+                                            for ($i = 1; $i <= 5; $i++) {
+                                                echo ($i <= $review['rating']) ? '<i class="fa fa-star"></i>' : '<i class="fa fa-star-o"></i>';
+                                            }
+                                            ?>
+                                        </div>
+                                        <p><?php echo $review['comment']; ?></p>
+                                    </div>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--        Sản phẩm tương tự -->
         <div class="col-lg-12">
             <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                 <div class="iq-card-header d-flex justify-content-between align-items-center position-relative">
