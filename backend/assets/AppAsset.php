@@ -49,6 +49,7 @@ class AppAsset extends AssetBundle
         'vendors/bootstrap-daterangepicker/daterangepicker.js',
         'build/js/custom.min.js',
         'js/tinymce/tinymce.min.js',
+        'js/main.js',
         'common/js/popper.min.js',
         'common/js/jquery.appear.js',
         'common/js/waypoints.min.js',
