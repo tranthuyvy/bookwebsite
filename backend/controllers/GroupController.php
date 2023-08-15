@@ -73,8 +73,15 @@ class GroupController extends Controller
         $model->updated_at = $time;
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'group_id' => $model->group_id]);
+            if ($model->load($this->request->post())) {
+                // Kiểm tra trùng lặp
+                $existingGroup = Group::findOne(['group_name' => $model->group_name]);
+                if ($existingGroup !== null) {
+                    // Hiển thị thông báo lỗi và không lưu dữ liệu
+                    $model->addError('group_name', 'Thể loại đã tồn tại');
+                } elseif ($model->save()) {
+                    return $this->redirect(['view', 'group_id' => $model->group_id]);
+                }
             }
         } else {
             $model->loadDefaultValues();
@@ -95,6 +102,7 @@ class GroupController extends Controller
     public function actionUpdate($group_id)
     {
         $model = $this->findModel($group_id);
+        $model->updated_at = time();
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
             return $this->redirect(['view', 'group_id' => $model->group_id]);
