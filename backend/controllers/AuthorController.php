@@ -73,8 +73,15 @@ class AuthorController extends Controller
         $model->updated_at = $time;
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'author_id' => $model->author_id]);
+            if ($model->load($this->request->post())) {
+                // Kiểm tra trùng lặp
+                $existingAuthor = Author::findOne(['author_name' => $model->author_name]);
+                if ($existingAuthor !== null) {
+                    // Hiển thị thông báo lỗi và không lưu dữ liệu
+                    $model->addError('author_name', 'Tác giả đã tồn tại');
+                } elseif ($model->save()) {
+                    return $this->redirect(['view', 'author_id' => $model->author_id]);
+                }
             }
         } else {
             $model->loadDefaultValues();
