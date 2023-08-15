@@ -52,7 +52,7 @@ AppAsset::register($this);
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                     <div class="menu_section">
                         <ul class="nav side-menu">
-                            <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="fa fa-edit"></i> Danh Mục <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="<?php echo Yii::$app->homeUrl.'group' ?>">Thể Loại</a></li>
                                     <li><a href="<?php echo Yii::$app->homeUrl.'author' ?>">Tác Giả</a></li>
