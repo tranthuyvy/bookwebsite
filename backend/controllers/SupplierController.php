@@ -73,8 +73,15 @@ class SupplierController extends Controller
         $model->updated_at = $time;
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'supplier_id' => $model->supplier_id]);
+            if ($model->load($this->request->post())) {
+                // Kiểm tra trùng lặp
+                $existingSupplier = Supplier::findOne(['supplier_name' => $model->supplier_name]);
+                if ($existingSupplier !== null) {
+                    // Hiển thị thông báo lỗi và không lưu dữ liệu
+                    $model->addError('supplier_name', 'Nhà xuất bản đã tồn tại');
+                } elseif ($model->save()) {
+                    return $this->redirect(['view', 'supplier_id' => $model->supplier_id]);
+                }
             }
         } else {
             $model->loadDefaultValues();

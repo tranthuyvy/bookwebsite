@@ -72,8 +72,15 @@ class RoleController extends Controller
         $model->updated_at = time();
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'role_id' => $model->role_id]);
+            if ($model->load($this->request->post())) {
+                // Kiểm tra trùng lặp
+                $existingRole = Role::findOne(['role_name' => $model->role_name]);
+                if ($existingRole !== null) {
+                    // Hiển thị thông báo lỗi và không lưu dữ liệu
+                    $model->addError('role_name', 'Quyền đã tồn tại');
+                } elseif ($model->save()) {
+                    return $this->redirect(['view', 'role_id' => $model->role_id]);
+                }
             }
         } else {
             $model->loadDefaultValues();
