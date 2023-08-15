@@ -198,15 +198,24 @@ class OrderController extends Controller
                 'DATE(FROM_UNIXTIME(created_at)) AS date',
                 'SUM(totalMoney) AS total',
             ])
-            ->where(['status' => 5]) // Chỉ lấy các đơn hàng có trạng thái thành công
+            ->where(['status' => 5])
             ->groupBy('DATE(FROM_UNIXTIME(created_at))')
             ->asArray()
             ->all();
 
         $dailySalesData = [];
         foreach ($data as $entry) {
-            $dailySalesData[] = [$entry['date'], (int) $entry['total']];
+            $dailySalesData[] = [
+                'date' => $entry['date'],
+                'total' => (int) $entry['total'],
+            ];
         }
+
+// Lấy ra mảng ngày để sử dụng cho sắp xếp
+        $dates = array_column($dailySalesData, 'date');
+
+// Sắp xếp mảng dựa trên mảng ngày
+        array_multisort($dates, SORT_ASC, $dailySalesData);
 
         $data2 = Order::find()
             ->select([

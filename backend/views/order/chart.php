@@ -116,13 +116,13 @@
                     <?php foreach ($dailySalesData as $dailySale): ?>
                         <li>
                             <div class="iq-details mb-2">
-                                <span class="title"><?php echo $dailySale[0]; ?></span>
+                                <span class="title"><?php echo $dailySale['date']; ?></span>
                                 <div class="percentage float-right text-dark">
-                                    <?= number_format($dailySale[1], 0, ',', '.') . ' VNĐ'; ?>
+                                    <?= number_format($dailySale['total'], 0, ',', '.') . ' VNĐ'; ?>
                                 </div>
                                 <div class="iq-progress-bar-linear d-inline-block w-100">
                                     <div class="iq-progress-bar iq-bg-danger">
-                                        <span class="bg-danger" data-percent="<?php echo $dailySale[1]/$totalIncome*100; ?>"></span>
+                                        <span class="bg-danger" data-percent="<?php echo $dailySale['total']/$totalIncome*100; ?>"></span>
                                     </div>
                                 </div>
                             </div>

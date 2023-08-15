@@ -8,7 +8,6 @@ use frontend\models\Product;
         <div class="col-sm-12">
             <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                 <div class="iq-card-header d-flex justify-content-between align-items-center">
-<!--                    <h4 class="card-title mb-0">Chi Tiết Sản Phẩm</h4>-->
                 </div>
                 <div class="iq-card-body pb-0">
                     <div class="description-contens align-items-top row">
