@@ -73,8 +73,15 @@ class PaymentController extends Controller
         $model->updated_at = time();
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'payment_id' => $model->payment_id]);
+            if ($model->load($this->request->post())) {
+                // Kiểm tra trùng lặp
+                $existingPayment = Payment::findOne(['payment_name' => $model->payment_name]);
+                if ($existingPayment !== null) {
+                    // Hiển thị thông báo lỗi và không lưu dữ liệu
+                    $model->addError('payment_name', 'Phương thức thanh toán đã tồn tại');
+                } elseif ($model->save()) {
+                    return $this->redirect(['view', 'payment_id' => $model->payment_id]);
+                }
             }
         } else {
             $model->loadDefaultValues();
