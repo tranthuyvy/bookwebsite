@@ -95,11 +95,31 @@ class ProductController extends \yii\web\Controller
         $data_all = new Product();
         $data_all = $data_all->getAllProduct();
 
+        foreach ($data_all as &$product) {
+            $productModel = new Product();
+            $productModel->attributes = $product;
+
+            $productReviews = Review::find()
+                ->where(['product_id' => $product['product_id']])
+                ->all();
+
+            $averageRating = 0;
+            if (!empty($productReviews)) {
+                $totalRating = 0;
+                foreach ($productReviews as $review) {
+                    $totalRating += $review->rating;
+                }
+                $averageRating = $totalRating / count($productReviews);
+            }
+
+            $product['average_rating'] = $averageRating;
+        }
+
         $page_all = new Product();
         $page_all = $page_all->getPageAllProduct();
 
         return $this->render('allproduct',[
-           'data_all' => $data_all,
+            'data_all' => $data_all,
             'page_all' => $page_all,
         ]);
     }
@@ -111,10 +131,8 @@ class ProductController extends \yii\web\Controller
             ->where(['like', 'product_name', $searchQuery])
             ->orWhere(['like', 'author.author_name', $searchQuery])
             ->orWhere(['like', 'group.group_name', $searchQuery])
-            ->orWhere(['like', 'supplier.supplier_name', $searchQuery])
             ->leftJoin('author', 'author.author_id = product.author_id')
             ->leftJoin('group', 'group.group_id = product.group_id')
-            ->leftJoin('supplier', 'supplier.supplier_id = product.supplier_id')
             ->asArray()
             ->all();
 

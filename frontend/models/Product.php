@@ -71,7 +71,6 @@ class Product extends \yii\db\ActiveRecord
         $page = $this->getPageAllProduct();
         $data_all = Product::find()
             ->where(['status'=>$status])
-            ->orderBy(new Expression('RAND()'))
             ->distinct()
             ->asArray()
             ->offset($page->offset)
