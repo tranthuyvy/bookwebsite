@@ -73,6 +73,7 @@ use yii\widgets\LinkPager;
                                                         $.get("<?= Yii::$app->homeUrl ?>wishlist/remove", {'id': id}, function (data) {
                                                             if (data.success) {
                                                                 $("#item_" + id).remove();
+                                                                location.reload();
                                                             }
                                                         });
                                                     }
