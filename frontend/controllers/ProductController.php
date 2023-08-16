@@ -70,7 +70,7 @@ class ProductController extends \yii\web\Controller
         $productReviews = Review::find()
             ->where(['product_id' => $id])
             ->orderBy(['created_at' => SORT_DESC])
-            ->with('user') // Eager loading để lấy thông tin người dùng liên quan
+            ->with('user')
             ->all();
 
         $averageRating = 0;

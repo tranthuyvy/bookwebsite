@@ -37,19 +37,11 @@
                                 <div class="col-6">
                                     <div class="mb-2">
                                         <h6 class="mb-1"><?php echo $product['product_name']; ?></h6>
-                                        <!--                                <p class="font-size-13 line-height mb-1">-->
-                                        <?php //echo $product['author_name']; ?><!--</p>-->
-                                        <!--                                <div class="d-block line-height">-->
-                                        <!--                                    <span class="font-size-11 text-warning">-->
-                                        <!--                                        --><?php //for ($i = 1; $i <= 5; $i++) {
-                                        //                                            if ($i <= $product['rating']) { ?>
-                                        <!--                                                <i class="fa fa-star"></i>-->
-                                        <!--                                            --><?php //} else { ?>
-                                        <!--                                                <i class="fa fa-star-o"></i>-->
-                                        <!--                                            --><?php //}
-                                        //                                        } ?>
-                                        <!--                                    </span>-->
-                                        <!--                                </div>-->
+                                        <div class="mb-3 d-block">
+                                            <span class="font-size-20 text-warning">
+                                                <?= $this->context->displayRatingStars($product['average_rating']); ?>
+                                            </span>
+                                        </div>
                                     </div>
                                     <div class="price d-flex align-items-center">
                                         <h6 style="color: red"><b><?php echo number_format($product['product_price'], 0, ',', '.'); ?>

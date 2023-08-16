@@ -216,5 +216,4 @@ class Product extends \yii\db\ActiveRecord
         $page_all = new Pagination(['totalCount'=> count($data_all), 'pageSize'=>'8']);
         return $page_all;
     }
-
 }
