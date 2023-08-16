@@ -73,11 +73,21 @@ class ProductController extends \yii\web\Controller
             ->with('user') // Eager loading để lấy thông tin người dùng liên quan
             ->all();
 
+        $averageRating = 0;
+        if (!empty($productReviews)) {
+            $totalRating = 0;
+            foreach ($productReviews as $review) {
+                $totalRating += $review->rating;
+            }
+            $averageRating = $totalRating / count($productReviews);
+        }
+
         return $this->render('detail', [
             'data_detail' => $data_detail,
             'author_name' => $author_name,
             'relatedProducts' => $relatedProducts,
             'productReviews' => $productReviews,
+            'averageRating' => $averageRating,
         ]);
     }
 
