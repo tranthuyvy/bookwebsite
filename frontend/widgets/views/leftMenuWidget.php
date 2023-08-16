@@ -20,10 +20,12 @@
             <ul id="iq-sidebar-toggle" class="iq-menu">
 
                 <li class="active active-menu">
-                    <a href="#dashboard" class="iq-waves-effect" data-toggle="collapse"
-                       aria-expanded="true"><span class="ripple rippleEffect"></span><i
-                            class="las la-home iq-arrow-left"></i><span>Trang Chủ</span><i
-                            class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                    <a href="<?= Yii::$app->homeUrl ?>" class="iq-waves-effect">
+                        <span class="ripple rippleEffect"></span>
+                        <i class="las la-home iq-arrow-left"></i>
+                        <span>Trang Chủ</span>
+                        <i class="ri-arrow-right-s-line iq-arrow-right"></i>
+                    </a>
                     <ul id="dashboard" class="iq-submenu collapse show" data-parent="#iq-sidebar-toggle">
                     </ul>
                 </li>
