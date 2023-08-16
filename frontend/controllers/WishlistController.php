@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use frontend\models\Review;
 use Yii;
 use frontend\models\Wishlist;
 use frontend\models\WishlistSearch;
@@ -49,7 +50,6 @@ class WishlistController extends Controller
 
     public function actionWishlist()
     {
-
         $wishlistItems = Wishlist::find()
             ->select('product_id')
             ->with('product')
@@ -57,6 +57,23 @@ class WishlistController extends Controller
             ->groupBy('product_id')
             ->asArray()
             ->all();
+
+        foreach ($wishlistItems as &$wishlistItem) {
+            $productReviews = Review::find()
+                ->where(['product_id' => $wishlistItem['product']['product_id']])
+                ->all();
+
+            $averageRating = 0;
+            if (!empty($productReviews)) {
+                $totalRating = 0;
+                foreach ($productReviews as $review) {
+                    $totalRating += $review->rating;
+                }
+                $averageRating = $totalRating / count($productReviews);
+            }
+
+            $wishlistItem['average_rating'] = $averageRating;
+        }
 
         return $this->render('wishlist', ['wishlistItems' => $wishlistItems]);
     }
