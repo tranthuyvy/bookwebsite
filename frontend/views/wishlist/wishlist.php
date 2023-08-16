@@ -63,6 +63,21 @@ use yii\widgets\LinkPager;
                                             <button class="btn btn-outline-primary" type="button" onclick="addCart(<?= $product['product_id']; ?>)">
                                                 <i class="ri-shopping-cart-2-fill text-primary"></i>
                                             </button>
+                                            <button class="btn btn-outline-danger" type="button" onclick="removeFromWishlist(<?= $product['product_id']; ?>)">
+                                                <i class="ri-delete-bin-line text-danger"></i>
+                                            </button>
+                                            <script>
+                                                function removeFromWishlist(id) {
+                                                    var result = confirm("Bạn có chắc chắn muốn xóa sản phẩm này khỏi wishlist?");
+                                                    if (result) {
+                                                        $.get("<?= Yii::$app->homeUrl ?>wishlist/remove", {'id': id}, function (data) {
+                                                            if (data.success) {
+                                                                $("#item_" + id).remove();
+                                                            }
+                                                        });
+                                                    }
+                                                }
+                                            </script>
                                         </div>
                                     </div>
                                 </div>
@@ -71,17 +86,6 @@ use yii\widgets\LinkPager;
                     <?php } ?>
                 </div>
             </div>
-<!--            --><?php
-//            echo LinkPager::widget([
-//                'pagination' => $page_wishlist,
-//                'options' => ['class' => 'pagination justify-content-center'],
-//                'firstPageLabel' => '|<',
-//                'lastPageLabel' => '|>',
-//                'prevPageLabel' => '<',
-//                'nextPageLabel' => '>',
-//                'maxButtonCount' => 5
-//            ]);
-//            ?>
         </div>
     </div>
 </div>

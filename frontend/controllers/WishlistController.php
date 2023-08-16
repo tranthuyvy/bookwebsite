@@ -8,6 +8,7 @@ use frontend\models\WishlistSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\Response;
 
 /**
  * WishlistController implements the CRUD actions for Wishlist model.
@@ -58,5 +59,22 @@ class WishlistController extends Controller
             ->all();
 
         return $this->render('wishlist', ['wishlistItems' => $wishlistItems]);
+    }
+
+    public function actionRemove($id)
+    {
+        $user_id = Yii::$app->user->id;
+
+        // Tìm và xóa sản phẩm khỏi Wishlist của người dùng
+        $wishlistItem = Wishlist::findOne(['user_id' => $user_id, 'product_id' => $id]);
+
+        if ($wishlistItem) {
+            $wishlistItem->delete();
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return ['success' => true];
+        }
+
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        return ['success' => false];
     }
 }
