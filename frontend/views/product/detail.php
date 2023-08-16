@@ -119,29 +119,29 @@ use frontend\models\Product;
                                         </span>
                                     </div>
                                     <div class="mb-3 d-block">
-    <span class="font-size-20 text-warning">
-        <?php
-        $averageRating = min($averageRating, 5); // Đảm bảo giá trị không vượt quá 5
+                                        <span class="font-size-20 text-warning">
+                                            <?php
+                                                $averageRating = min($averageRating, 5);
 
-        $fullStars = floor($averageRating); // Số sao đầy (màu vàng)
-        $remainingStars = round($averageRating - $fullStars); // Số sao trống (viền đen và nửa sao)
+                                                $fullStars = floor($averageRating);
+                                                $remainingStars = round($averageRating - $fullStars);
 
-        for ($i = 1; $i <= $fullStars; $i++) {
-            echo '<i class="fa fa-star mr-1"></i>';
-        }
+                                                for ($i = 1; $i <= $fullStars; $i++) {
+                                                    echo '<i class="fa fa-star mr-1"></i>';
+                                                }
 
-        if ($remainingStars > 0) {
-            echo '<i class="fas fa-star-half-alt mr-1"></i>';
-            $emptyStars = max(5 - $fullStars - 1, 0); // Trừ 1 star đã hiển thị nửa sao
-        } else {
-            $emptyStars = max(5 - $fullStars, 0); // Số sao trống bình thường
-        }
+                                                if ($remainingStars > 0) {
+                                                    echo '<i class="fas fa-star-half-alt mr-1"></i>';
+                                                    $emptyStars = max(5 - $fullStars - 1, 0);
+                                                } else {
+                                                    $emptyStars = max(5 - $fullStars, 0);
+                                                }
 
-        for ($i = 1; $i <= $emptyStars; $i++) {
-            echo '<i class="far fa-star mr-1" style="color: black"></i>'; // Sử dụng viền sao
-        }
-        ?>
-    </span>
+                                                for ($i = 1; $i <= $emptyStars; $i++) {
+                                                    echo '<i class="far fa-star mr-1" style="color: black"></i>';
+                                                }
+                                            ?>
+                                        </span>
                                     </div>
                                     <span class="text-dark mb-4 pb-4 iq-border-bottom d-block">
                                         <?php echo $data_detail["product_description"]?>
