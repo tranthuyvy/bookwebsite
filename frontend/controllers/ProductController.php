@@ -196,6 +196,26 @@ class ProductController extends \yii\web\Controller
             ->asArray()
             ->all();
 
+        foreach ($product_search as &$product) {
+            $productModel = new Product();
+            $productModel->attributes = $product;
+
+            $productReviews = Review::find()
+                ->where(['product_id' => $product['product_id']])
+                ->all();
+
+            $averageRating = 0;
+            if (!empty($productReviews)) {
+                $totalRating = 0;
+                foreach ($productReviews as $review) {
+                    $totalRating += $review->rating;
+                }
+                $averageRating = $totalRating / count($productReviews);
+            }
+
+            $product['average_rating'] = $averageRating;
+        }
+
         return $this->render('search', [
             'searchQuery' => $searchQuery,
             'product_search' => $product_search,
