@@ -84,6 +84,26 @@ class ProductController extends \yii\web\Controller
         $data_supplier = new Product();
         $data_supplier = $data_supplier->getProductBySupplierId($id);
 
+        foreach ($data_supplier as &$product) {
+            $productModel = new Product();
+            $productModel->attributes = $product;
+
+            $productReviews = Review::find()
+                ->where(['product_id' => $product['product_id']])
+                ->all();
+
+            $averageRating = 0;
+            if (!empty($productReviews)) {
+                $totalRating = 0;
+                foreach ($productReviews as $review) {
+                    $totalRating += $review->rating;
+                }
+                $averageRating = $totalRating / count($productReviews);
+            }
+
+            $product['average_rating'] = $averageRating;
+        }
+
         $page_supplier = new Product();
         $page_supplier = $page_supplier->getPageSupplierProduct($id);
 
