@@ -95,17 +95,6 @@ use yii\widgets\LinkPager;
                     <?php } ?>
                 </div>
             </div>
-<!--            --><?php
-//            echo LinkPager::widget([
-//                'pagination' => $page,
-//                'options' => ['class' => 'pagination justify-content-center'],
-//                'firstPageLabel' => '|<',
-//                'lastPageLabel' => '|>',
-//                'prevPageLabel' => '<',
-//                'nextPageLabel' => '>',
-//                'maxButtonCount' => 5
-//            ]);
-//            ?>
         </div>
     </div>
 </div>
