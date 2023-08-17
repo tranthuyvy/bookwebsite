@@ -53,7 +53,8 @@
                                                         <div class="row align-items-center mt-2">
                                                             <div class="col-sm-7 col-md-6">
 
-                                                                <input type="number"
+                                                                <input style="height: 35px; width: 40px"
+                                                                        type="number"
                                                                         onchange="updateCart(<?php echo $key?>);"
                                                                         id="amount_<?php echo $key ?>"
                                                                         name="amount_<?php echo $key ?>"

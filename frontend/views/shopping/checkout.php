@@ -55,28 +55,7 @@ use yii\widgets\ActiveForm;
                                                         <div class="col-sm-10">
                                                             <div class="row align-items-center mt-2">
                                                                 <div class="col-sm-7 col-md-6">
-                                                                    <!--                                                                <button type="button"-->
-                                                                    <!--                                                                        class="fa fa-minus qty-btn"-->
-                                                                    <!--                                                                        id="btn-minus">-->
-                                                                    <!--                                                                </button>-->
-
-<!--                                                                    <input style="width:50px; height: 40px; margin-left: 20px" type="number"-->
-<!--                                                                           id="amount_--><?php //echo $key ?><!--"-->
-<!--                                                                           name="amount_--><?php //echo $key ?><!--"-->
-<!--                                                                           value="--><?php //echo $value['amount']?><!--">-->
-
-
                                                                     <div>Số Lượng: <?php echo $value['amount']?></div>
-
-                                                                    <!--                                                                <input style="width:40px; height: 30px; padding: 12px " type="text"-->
-                                                                    <!--                                                                       id="amount_--><?php //echo $key ?><!--"-->
-                                                                    <!--                                                                       name="amount_--><?php //echo $key ?><!--"-->
-                                                                    <!--                                                                       value="--><?php //echo $value['amount']?><!--">-->
-
-                                                                    <!--                                                                <button type="button"-->
-                                                                    <!--                                                                        class="fa fa-plus qty-btn"-->
-                                                                    <!--                                                                        id="btn-plus">-->
-                                                                    <!--                                                                </button>-->
                                                                 </div>
                                                                 <div class="col-sm-5 col-md-6">
                                                                 <span class="product-price">
