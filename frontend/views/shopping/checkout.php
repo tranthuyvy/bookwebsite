@@ -149,6 +149,9 @@ use yii\widgets\ActiveForm;
                                         <div class="form-group">
                                             <?= $form->field($model, 'payment_id')->dropDownList($payment, ['prompt'=>'-Phương thức thanh toán-']) ?>
                                         </div>
+                                        <div class="form-group">
+                                            <div id="paypal-button"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -162,3 +165,45 @@ use yii\widgets\ActiveForm;
         </div>
     </div>
 </div>
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<script>
+    paypal.Button.render({
+        // Configure environment
+        env: 'sandbox',
+
+        client: {
+            sandbox: 'AY5do5qschROo-fAFJp06oQ91RSPIEPvm9cXKFrxRe9hPaQ8JSHHwppglUwgHU4dujyd5aAZBsISQIB9',
+            production: 'demo_production_client_id'
+        },
+        // Customize button (optional)
+        locale: 'en_US',
+        style: {
+            size: 'small',
+            color: 'gold',
+            shape: 'pill',
+        },
+
+        // Enable Pay Now checkout flow (optional)
+        commit: true,
+
+        // Set up a payment
+        payment: function(data, actions) {
+            return actions.payment.create({
+                transactions: [{
+                    amount: {
+                        total: '0.01',
+                        currency: 'USD'
+                    }
+                }]
+            });
+        },
+        // Execute the payment
+        onAuthorize: function(data, actions) {
+            return actions.payment.execute().then(function() {
+                // Show a confirmation message to the buyer
+                window.alert('Cảm Ơn Bạn Đã Mua Hàng');
+            });
+        }
+    }, '#paypal-button');
+
+</script>
