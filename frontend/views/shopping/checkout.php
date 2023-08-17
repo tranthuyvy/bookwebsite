@@ -147,10 +147,14 @@ use yii\widgets\ActiveForm;
                                         </div>
 
                                         <div class="form-group">
-                                            <?= $form->field($model, 'payment_id')->dropDownList($payment, ['prompt'=>'-Phương thức thanh toán-']) ?>
+                                            <?= $form->field($model, 'payment_id')->dropDownList($payment, ['prompt'=>'- Phương thức thanh toán -']) ?>
                                         </div>
                                         <div class="form-group">
+                                            <?php
+                                                $vnd_to_usd = $total/23500
+                                            ?>
                                             <div id="paypal-button"></div>
+                                            <input type="hidden" id="vnd_to_usd" value="<?php echo round($vnd_to_usd,2)?>">
                                         </div>
                                     </div>
                                 </div>
@@ -167,6 +171,7 @@ use yii\widgets\ActiveForm;
 </div>
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 <script>
+    var usd = document.getElementById("vnd_to_usd").value;
     paypal.Button.render({
         // Configure environment
         env: 'sandbox',
@@ -188,10 +193,11 @@ use yii\widgets\ActiveForm;
 
         // Set up a payment
         payment: function(data, actions) {
+
             return actions.payment.create({
                 transactions: [{
                     amount: {
-                        total: '0.01',
+                        total: usd,
                         currency: 'USD'
                     }
                 }]
